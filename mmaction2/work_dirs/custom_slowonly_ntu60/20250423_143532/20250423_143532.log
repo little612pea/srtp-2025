@@ -1,0 +1,501 @@
+2025/04/23 14:35:33 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.11.8 | packaged by conda-forge | (main, Feb 16 2024, 20:53:32) [GCC 12.3.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 1112627514
+    GPU 0: NVIDIA A100-SXM4-80GB
+    CUDA_HOME: /home/jovyan/cuda
+    NVCC: Cuda compilation tools, release 12.3, V12.3.107
+    GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+    PyTorch: 2.6.0+cu124
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 12.4
+  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90
+  - CuDNN 90.1
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=2236df1770800ffea5697b11b0bb0d910b2e59e1, CUDA_VERSION=12.4, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.6.0, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, 
+
+    TorchVision: 0.21.0+cu124
+    OpenCV: 4.11.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: False
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 1112627514
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+2025/04/23 14:35:33 - mmengine - INFO - Config:
+ann_file = '/home/jovyan/2024-srtp/srtp-final/mmaction2/output_hitting.pkl'
+dataset_type = 'PoseDataset'
+default_hooks = dict(
+    checkpoint=dict(interval=1, save_best='auto', type='CheckpointHook'),
+    logger=dict(ignore_last=False, interval=20, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    runtime_info=dict(type='RuntimeInfoHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    sync_buffers=dict(type='SyncBuffersHook'),
+    timer=dict(type='IterTimerHook'))
+default_scope = 'mmaction'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+launcher = 'none'
+left_kp = [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+]
+load_from = 'ckpt/epoch_2.pth'
+log_level = 'INFO'
+log_processor = dict(by_epoch=True, type='LogProcessor', window_size=20)
+model = dict(
+    backbone=dict(
+        base_channels=32,
+        conv1_stride_s=1,
+        depth=50,
+        dilations=(
+            1,
+            1,
+            1,
+        ),
+        in_channels=17,
+        inflate=(
+            0,
+            1,
+            1,
+        ),
+        num_stages=3,
+        out_indices=(2, ),
+        pool1_stride_s=1,
+        pretrained=None,
+        spatial_strides=(
+            2,
+            2,
+            2,
+        ),
+        stage_blocks=(
+            4,
+            6,
+            3,
+        ),
+        temporal_strides=(
+            1,
+            1,
+            2,
+        ),
+        type='ResNet3dSlowOnly'),
+    cls_head=dict(
+        average_clips='prob',
+        dropout_ratio=0.5,
+        in_channels=512,
+        num_classes=6,
+        type='I3DHead'),
+    type='Recognizer3D')
+optim_wrapper = dict(
+    clip_grad=dict(max_norm=40, norm_type=2),
+    optimizer=dict(lr=0.2, momentum=0.9, type='SGD', weight_decay=0.0003))
+param_scheduler = [
+    dict(
+        T_max=24,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        eta_min=0,
+        type='CosineAnnealingLR'),
+]
+resume = False
+right_kp = [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+]
+test_cfg = dict(type='TestLoop')
+test_dataloader = dict(
+    batch_size=8,
+    dataset=dict(
+        ann_file=
+        '/home/jovyan/2024-srtp/srtp-final/mmaction2/output_hitting.pkl',
+        pipeline=[
+            dict(
+                clip_len=48,
+                num_clips=10,
+                test_mode=True,
+                type='UniformSampleFrames'),
+            dict(type='PoseDecode'),
+            dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+            dict(scale=(
+                -1,
+                64,
+            ), type='Resize'),
+            dict(crop_size=64, type='CenterCrop'),
+            dict(
+                double=True,
+                left_kp=[
+                    1,
+                    3,
+                    5,
+                    7,
+                    9,
+                    11,
+                    13,
+                    15,
+                ],
+                right_kp=[
+                    2,
+                    4,
+                    6,
+                    8,
+                    10,
+                    12,
+                    14,
+                    16,
+                ],
+                sigma=0.6,
+                type='GeneratePoseTarget',
+                use_score=True,
+                with_kp=True,
+                with_limb=False),
+            dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+            dict(type='PackActionInputs'),
+        ],
+        split='val',
+        test_mode=True,
+        type='PoseDataset'),
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = [
+    dict(type='AccMetric'),
+    dict(out_file_path='temp.pkl', type='DumpResults'),
+]
+test_pipeline = [
+    dict(
+        clip_len=48, num_clips=10, test_mode=True, type='UniformSampleFrames'),
+    dict(type='PoseDecode'),
+    dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+    dict(scale=(
+        -1,
+        64,
+    ), type='Resize'),
+    dict(crop_size=64, type='CenterCrop'),
+    dict(
+        double=True,
+        left_kp=[
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+        ],
+        right_kp=[
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+        ],
+        sigma=0.6,
+        type='GeneratePoseTarget',
+        use_score=True,
+        with_kp=True,
+        with_limb=False),
+    dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+    dict(type='PackActionInputs'),
+]
+train_cfg = dict(
+    max_epochs=24, type='EpochBasedTrainLoop', val_begin=1, val_interval=1)
+train_dataloader = dict(
+    batch_size=64,
+    dataset=dict(
+        dataset=dict(
+            ann_file=
+            '/home/jovyan/2024-srtp/srtp-final/mmaction2/output_hitting.pkl',
+            pipeline=[
+                dict(clip_len=48, type='UniformSampleFrames'),
+                dict(type='PoseDecode'),
+                dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+                dict(scale=(
+                    -1,
+                    64,
+                ), type='Resize'),
+                dict(area_range=(
+                    0.56,
+                    1.0,
+                ), type='RandomResizedCrop'),
+                dict(keep_ratio=False, scale=(
+                    56,
+                    56,
+                ), type='Resize'),
+                dict(
+                    flip_ratio=0.5,
+                    left_kp=[
+                        1,
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        15,
+                    ],
+                    right_kp=[
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                    ],
+                    type='Flip'),
+                dict(
+                    sigma=0.6,
+                    type='GeneratePoseTarget',
+                    use_score=True,
+                    with_kp=True,
+                    with_limb=False),
+                dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+                dict(type='PackActionInputs'),
+            ],
+            split='train',
+            type='PoseDataset'),
+        times=10,
+        type='RepeatDataset'),
+    num_workers=8,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(clip_len=48, type='UniformSampleFrames'),
+    dict(type='PoseDecode'),
+    dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+    dict(scale=(
+        -1,
+        64,
+    ), type='Resize'),
+    dict(area_range=(
+        0.56,
+        1.0,
+    ), type='RandomResizedCrop'),
+    dict(keep_ratio=False, scale=(
+        56,
+        56,
+    ), type='Resize'),
+    dict(
+        flip_ratio=0.5,
+        left_kp=[
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+        ],
+        right_kp=[
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+        ],
+        type='Flip'),
+    dict(
+        sigma=0.6,
+        type='GeneratePoseTarget',
+        use_score=True,
+        with_kp=True,
+        with_limb=False),
+    dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+    dict(type='PackActionInputs'),
+]
+val_cfg = dict(type='ValLoop')
+val_dataloader = dict(
+    batch_size=8,
+    dataset=dict(
+        ann_file=
+        '/home/jovyan/2024-srtp/srtp-final/mmaction2/output_hitting.pkl',
+        pipeline=[
+            dict(
+                clip_len=48,
+                num_clips=1,
+                test_mode=True,
+                type='UniformSampleFrames'),
+            dict(type='PoseDecode'),
+            dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+            dict(scale=(
+                -1,
+                64,
+            ), type='Resize'),
+            dict(crop_size=64, type='CenterCrop'),
+            dict(
+                sigma=0.6,
+                type='GeneratePoseTarget',
+                use_score=True,
+                with_kp=True,
+                with_limb=False),
+            dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+            dict(type='PackActionInputs'),
+        ],
+        split='val',
+        test_mode=True,
+        type='PoseDataset'),
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = [
+    dict(type='AccMetric'),
+]
+val_pipeline = [
+    dict(clip_len=48, num_clips=1, test_mode=True, type='UniformSampleFrames'),
+    dict(type='PoseDecode'),
+    dict(allow_imgpad=True, hw_ratio=1.0, type='PoseCompact'),
+    dict(scale=(
+        -1,
+        64,
+    ), type='Resize'),
+    dict(crop_size=64, type='CenterCrop'),
+    dict(
+        sigma=0.6,
+        type='GeneratePoseTarget',
+        use_score=True,
+        with_kp=True,
+        with_limb=False),
+    dict(input_format='NCTHW_Heatmap', type='FormatShape'),
+    dict(type='PackActionInputs'),
+]
+vis_backends = [
+    dict(type='LocalVisBackend'),
+]
+visualizer = dict(
+    type='ActionVisualizer', vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = './work_dirs/custom_slowonly_ntu60'
+
+2025/04/23 14:35:38 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+2025/04/23 14:35:38 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SyncBuffersHook                    
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SyncBuffersHook                    
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+2025/04/23 14:35:38 - mmengine - INFO - 23 videos remain after valid thresholding
+2025/04/23 14:35:39 - mmengine - WARNING - The prefix is not set in metric class DumpResults.
+2025/04/23 14:35:39 - mmengine - INFO - Load checkpoint from ckpt/epoch_2.pth
+2025/04/23 14:36:02 - mmengine - INFO - Results has been saved to temp.pkl.
+2025/04/23 14:36:02 - mmengine - INFO - Epoch(test) [3/3]    acc/top1: 0.0000  acc/top5: 0.0000  acc/mean1: 0.0326  data_time: 6.3366  time: 7.6269
