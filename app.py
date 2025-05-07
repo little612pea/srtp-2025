@@ -1,4 +1,4 @@
-from temp_qwen import *
+from tools.qwen_model import *
 import gradio as gr
 import json
 from openai import OpenAI  # 假设 OpenAI 模块可用
@@ -10,6 +10,9 @@ import shutil
 from pathlib import Path
 import subprocess
 from moviepy import *
+from collections import Counter
+import dashscope
+from dashscope.audio.tts_v2 import *
 
 # 配置 API 密钥
 api_key = "your-api-key"
@@ -31,6 +34,328 @@ LEFT_DOWN = (22.5, 150)      # 场地左下角坐标
 # 新增状态管理
 chat_history_state = gr.State([])  # 用于存储完整对话历史
 
+
+# 类别颜色映射
+COLOR_MAP = {
+    0: "#FF6B6B",  # 红色
+    1: "#4ECDC4",  # 青色
+    2: "#45B7D1",  # 蓝色
+    3: "#96CEB4",  # 绿色
+    4: "#FFEEAD",  # 黄色
+    5: "#D4A5A5"   # 粉色
+}
+
+# 类别名称映射
+LABEL_MAP = {
+    0: "net shot",
+    1: "lift",
+    2: "smash",
+    3: "defensive drive",
+    4: "clear",
+    5: "flat shot"
+}
+def count_reasons(df):
+    win_reasons = df['win_reason'].dropna()
+    lose_reasons = df['lose_reason'].dropna()
+
+    win_reason_counts = Counter(win_reasons)
+    lose_reason_counts = Counter(lose_reasons)
+
+    return win_reason_counts, lose_reason_counts
+
+# 修改 plot_reason_counts 函数以接收 ax 参数
+def plot_reason_counts(win_reason_counts, lose_reason_counts, ax=None):
+    # 创建画布
+    fig = plt.figure(figsize=(12, 6))
+    # 创建两个子图
+    ax1 = plt.subplot(121) # 左边的子图
+    ax2 = plt.subplot(122) # 右边的子图
+
+    # Plotting win_reason counts
+    win_reasons, win_counts = zip(*win_reason_counts.items())
+    ax1.bar(win_reasons, win_counts, color='lightgreen')
+    ax1.set_xlabel('Win Reason')
+    ax1.set_ylabel('Count')
+    ax1.set_title('Win Reason Counts')
+    ax1.tick_params(axis='x', rotation=45)
+
+    # Plotting lose_reason counts
+    lose_reasons, lose_counts = zip(*lose_reason_counts.items())
+    ax2.bar(lose_reasons, lose_counts, color='lightcoral')
+    ax2.set_xlabel('Lose Reason')
+    ax2.set_ylabel('Count')
+    ax2.set_title('Lose Reason Counts')
+    ax2.tick_params(axis='x', rotation=45)
+
+    # 如果 ax 被提供，则将 ax1 和 ax2 的内容绘制到指定的 ax 中
+    if ax is not None:
+        print("Using provided axes for plotting.")
+        for a in [ax1, ax2]:
+            for bar in a.containers[0]:
+                a.draw_artist(bar)
+            a.relim()
+            a.autoscale_view()
+        fig.canvas.draw_idle()
+
+
+def visualize_match_data(match_segment):    
+    # 划分比赛段落
+    if match_segment == "第一场":
+        df = pd.read_csv("/home/jovyan/2024-srtp/srtp-final/Anthony_Sinisuka_Ginting_Lee_Zii_Jia_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals/set1.csv")
+    elif match_segment == "第二场":
+        df = pd.read_csv("/home/jovyan/2024-srtp/srtp-final/Anthony_Sinisuka_Ginting_Lee_Zii_Jia_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals/set2.csv")
+    else:
+        df = pd.read_csv("/home/jovyan/2024-srtp/srtp-final/Anthony_Sinisuka_Ginting_Lee_Zii_Jia_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals/set3.csv")
+    sub_df = df.copy()
+
+    type_mapping = {
+        '放小球': 'net shot',
+        '擋小球': 'return net',
+        '殺球': 'smash',
+        '點扣': 'wrist smash',
+        '挑球': 'lob',
+        '防守回挑': 'defensive return lob',
+        '長球': 'clear',
+        '平球': 'drive',
+        '小平球': 'driven flight',
+        '後場抽平球': 'back-court drive',
+        '切球': 'drop',
+        '過渡切球': 'passive drop',
+        '推球': 'push',
+        '撲球': 'rush',
+        '防守回抽': 'defensive return drive',
+        '勾球': 'cross-court net shot',
+        '發短球': 'short service',
+        '發長球': 'long service'
+    }
+
+    # 设置字体支持中文显示
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'FangSong']  # 指定默认字体
+    plt.rcParams['axes.unicode_minus'] = False  # 解决负号 '-' 显示为方块的问题
+
+    # 创建画布：3行1列，高度增加一点
+    fig, (ax1, ax2, ax3,ax4) = plt.subplots(4, 1, figsize=(10, 20),gridspec_kw={'height_ratios': [1, 1, 1.5]})
+    plt.subplots_adjust(hspace=0.6)  # 增加子图间距
+
+    # 图1：击球类型分布（英文）
+    sub_df['type_en'] = sub_df['type'].map(type_mapping)
+    type_counts = sub_df['type_en'].value_counts()
+    ax1.bar(type_counts.index, type_counts.values, color='skyblue')
+    ax1.set_title('Shot Type Distribution')
+    ax1.tick_params(axis='x', rotation=90)
+
+    # 图2：击球-落点热力图
+    hit_areas = pd.crosstab(sub_df['hit_area'], sub_df['landing_area'])
+    im = ax2.imshow(hit_areas, cmap='YlGnBu')
+    ax2.set_title('Hit-Landing Area Matrix')
+    ax2.set_xlabel('Landing Area')
+    ax2.set_ylabel('Hit Area')
+    plt.colorbar(im, ax=ax2)
+    win_reason_mapping = {
+    "對手出界": "Opponent Out of Bounds",
+    "對手掛網": "Opponent Netted",
+    "對手未過網": "Opponent Failed to Clear the Net",
+    "落地致勝": "Winning Shot (Ball Landed)",
+    "對手落點判斷失誤": "Opponent Misjudged Landing Spot"
+    }
+    # 图3：Win Reason Counts（得分原因统计）
+    win_reasons_en = sub_df['win_reason'].dropna().map(win_reason_mapping)
+    win_reason_counts = Counter(win_reasons_en)
+
+    win_reasons_list, win_counts_list = zip(*win_reason_counts.items())
+    ax3.bar(win_reasons_list, win_counts_list, color='lightgreen')
+    ax3.set_title('Win Reason Counts')
+    ax3.set_xlabel('Win Reason')
+    ax3.set_ylabel('Count')
+    ax3.tick_params(axis='x', rotation=45)
+    lose_reason_mapping = {
+    "對手落地致勝": "Opponent's Winning Shot (Ball Landed)",
+    "掛網": "Netted",
+    "未過網": "Failed to Clear the Net",
+    "出界": "Out of Bounds",
+    "落點判斷失誤": "Misjudged Landing Spot"
+    }
+    # 图4：Lose Reason Counts（失分原因统计）
+    lose_reasons = sub_df['lose_reason'].dropna().map(lose_reason_mapping)
+    lose_reason_counts = Counter(lose_reasons)
+    lose_reasons_list, lose_counts_list = zip(*lose_reason_counts.items())
+    ax4.bar(lose_reasons_list, lose_counts_list, color='lightcoral')
+    ax4.set_title('Lose Reason Counts')
+    ax4.set_xlabel('Lose Reason')
+    ax4.set_ylabel('Count')
+    ax4.tick_params(axis='x', rotation=45)
+    # 自动调整布局
+    plt.tight_layout()
+
+    return fig
+
+
+def create_timeline_plot(action_list, video_duration):
+    """生成时间轴图"""
+    # 计算视频时长
+    action_list = [1,2,3,4,3,2,5,0,1,3,2,4,5,0,1,2,3,4,5]
+    fig, ax = plt.subplots(figsize=(30, 1))
+    ax.set_xlim(0, video_duration)
+    ax.set_ylim(0, 1)
+    ax.axis('off')
+
+    # 合并连续相同动作
+    current_action = action_list[0]
+    start_time = 0
+    for i in range(1, len(action_list)):
+        if action_list[i] != current_action or i == len(action_list)-1:
+            end_time = i
+            ax.add_patch(Rectangle(
+                (start_time, 0), 
+                end_time - start_time, 1,
+                facecolor=COLOR_MAP[current_action],
+                edgecolor='white'
+            ))
+            start_time = end_time
+            current_action = action_list[i]
+
+    # 添加图例
+    legend_handles = []
+    for label_id, color in COLOR_MAP.items():
+        legend_handles.append(
+            Rectangle((0,0),1,1, facecolor=color, label=LABEL_MAP[label_id])
+        )
+    ax.legend(handles=legend_handles, 
+             loc='upper center',
+             bbox_to_anchor=(0.5, -0.2),
+             ncol=6)
+
+    return fig
+
+
+# 设置 DashScope API Key 和模型参数
+dashscope.api_key = "sk-cd5c2f5fcddd49c5b4e4169d5021d8e2"
+TTS_MODEL = "cosyvoice-v1"
+TTS_VOICE = "longlaotie"
+
+def commentary_generator(rally_id, chat_response, rally_data):
+    # 路径配置
+    rally_id = 3
+    rally_data = rally_data["rally"]
+    rally= rally_data[rally_id-1]
+    start_frame = int(rally[0])
+    end_frame = int(rally[1])
+    base_dir = "/home/jovyan/2024-srtp/srtp-final"
+    json_path = os.path.join(base_dir, "hit_frame_detection", "outputs", "joints", "input_video", f"rally_{rally_id}.json")
+    video_input_path = os.path.join(base_dir, "hit_frame_detection", "outputs", "videos", "input_video", "video_1_h264.mp4")
+    video_output_path = os.path.join(base_dir, "output_videos", f"video_{rally_id}_with_commentary.mp4")
+
+    # 创建输出目录
+    os.makedirs(os.path.dirname(video_output_path), exist_ok=True)
+
+    # 加载 JSON 数据
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    hit_frames = data.get("hit frames", [])
+    print(f"加载到 {len(hit_frames)} 个击球时间点")
+
+    # 解析 chat_response（格式：[{"hit_num": 2, "comment": "..."}, ...]）
+    try:
+        commentaries = json.loads(chat_response)
+    except json.JSONDecodeError:
+        raise ValueError("解说词格式错误，请检查输入的 JSON 数据！")
+
+    # 检查格式是否正确
+    if not isinstance(commentaries, list) or not all(
+        isinstance(item, dict) and "hit_num" in item and "comment" in item for item in commentaries
+    ):
+        raise ValueError("解说词格式错误，请确保每个解说词包含 'hit_num' 和 'comment' 字段！")
+
+    # 加载原始视频
+    video = VideoFileClip(video_input_path)
+
+    # 初始化临时文件夹用于存储音频
+    with tempfile.TemporaryDirectory() as tmpdir:
+        audio_clips = []
+
+        # 初始化合成器
+        synthesizer = SpeechSynthesizer(model=TTS_MODEL, voice=TTS_VOICE)
+
+        # 遍历每一条解说词
+        for i, item in enumerate(commentaries):
+            hit_num = item["hit_num"]
+            comment = item["comment"]
+
+            # 根据 hit_num 获取对应的帧编号
+            if hit_num < 1 or hit_num > len(hit_frames):
+                raise ValueError(f"无效的 hit_num: {hit_num}，请检查解说词中的 hit_num 是否在有效范围内！")
+
+            frame_time = hit_frames[hit_num - 1]  # hit_num 是从 1 开始计数的
+
+            # 帧转秒（假设帧率是 30 fps）
+            second = frame_time / 30.0
+            print(f"第{i+1}句解说：在 {second:.2f}s 处插入，hit_num: {hit_num}")
+
+            # 生成 TTS 音频
+            output_audio_path = os.path.join(tmpdir, f"tts_{i}.mp3")
+            audio_data = synthesizer.call(comment)
+            with open(output_audio_path, 'wb') as f:
+                f.write(audio_data)
+
+            # 加载音频片段并设置开始时间
+            audio_clip = AudioFileClip(output_audio_path).set_start(second)
+            audio_clips.append(audio_clip)
+
+            # 防止并发请求限制
+            time.sleep(1)
+
+        # 合成原视频音频 + 解说音频
+        final_audio = CompositeAudioClip([video.audio] + audio_clips) if video.audio else CompositeAudioClip(audio_clips)
+
+        # 设置视频音频并导出
+        video_with_audio = video.set_audio(final_audio)
+        video_with_audio.write_videofile(video_output_path, codec="libx264", audio_codec="aac")
+
+        print(f"视频已保存至: {video_output_path}")
+
+
+def get_action_plot(rally_choice,rally_data):
+    
+    video_path_part = rally_choice.split("/")[-1].split(".mp4")[0]
+    # 提取rally_id：
+    rally_id = int(video_path_part.split("_")[-1])
+    # 生成时间轴图
+    video_path_part = rally_choice.split("/")[-1].split(".mp4")[0]
+    # 提取rally_id：
+    rally_id = int(video_path_part.split("_")[-1])
+    pred_list = get_actions(rally_id)
+    # 提取rally_data中的rally_id对应的帧范围
+    rally_data = rally_data["rally"]
+    rally= rally_data[rally_id-1]
+    start_frame = int(rally[0])
+    end_frame = int(rally[1])
+    duration = (end_frame - start_frame) / 30  # 假设帧率为30fps
+    fig = create_timeline_plot(pred_list, duration)
+    return fig
+
+
+def get_actions(rally_id):
+      #从../joints/中读取csv文件
+    action_cmd = f"bash /home/jovyan/2024-srtp/srtp-final/mmaction2/get_action.sh {rally_id}"
+    subprocess.run(action_cmd, shell=True, check=True)
+    json_path = "/home/jovyan/2024-srtp/srtp-final/mmaction2/output_with_names.json"
+    with open(json_path, "r") as f:
+        data = json.load(f)
+    pred_list = []
+    label_names=[
+    "net shot",
+    "lift",
+    "smash",
+    "defensive drive",
+    "clear",
+    "flat shot"
+    ]
+    for entry in data:
+        pred_label = entry['pred_label'][0]
+        pred_label_name = label_names[pred_label]
+        pred_list.append(pred_label)
+    print(pred_list)
+    return pred_list
 # 修改后的预测函数
 def qwen_predict(user_input, sport, player1_name, player2_name,rally_data,rally_choice):
     # 原有预测逻辑（假设返回字符串）
@@ -39,59 +364,76 @@ def qwen_predict(user_input, sport, player1_name, player2_name,rally_data,rally_
     # 提取rally_id：
     rally_id = int(video_path_part.split("_")[-1])
     # 提取rally_data中的rally_id对应的帧范围
-    print(rally_data)
     rally_data = rally_data["rally"]
     rally= rally_data[rally_id-1]
     start_frame = int(rally[0])
     end_frame = int(rally[1])
+    # 获取动作序列
+    action_list = get_actions(rally_id)
+    player_nickname_map = {
+    "林丹": "丹",
+    "李宗伟": "李",
+    "谌龙": "龙",
+    "桃田贤斗": "桃",
+    "安赛龙": "龙",
+    "石宇奇": "石头",
+    "乔纳坦·克里斯蒂": "乔",
+    "李梓嘉": "李",
+    "安东尼·西尼苏卡·金廷": "金廷",
+    "周天成": "周"
+    }
+    player1_nickname = player_nickname_map.get(player1_name, player1_name)
+    player2_nickname = player_nickname_map.get(player2_name, player2_name)  
     prompt = f"""
-        Generate professional badminton commentary for a {sport} match between {player1_name} (Player 1) and {player2_name} (Player 2). 
+        Generate a professional badminton commentary in Chinese for a {sport} match between {player1_name} (Player 1) and {player2_name} (Player 2). 
 
         Key requirements:
-        1. Identify and classify each shot type from these 20 categories:
+        1. Output Format:
+        Return only a valid JSON array of objects with format, where hit_num is the index of the hit in the rally (1-based), and comment is the generated commentary for that hit:
+        [
+        {
+            "hit_num": 2,
+            "comment": "..."
+        }
+        {
+            "hit_num": 3,
+            "comment": "..."
+        },
+        ...
+        ]
+        
+
+        2. Identify and classify each shot type from these 20 categories:
         [net shot, smash, wrist smash, lob, defensive return lob, clear, drive, 
         driven flight, back-court drive, drop, passive drop, push, rush, 
         defensive return drive, cross-court net shot, short service, 
         long service, defensive shot, push/rush]
 
-        2. Follow this commentary structure for each rally:
-        - Timecode: [start_time] --> [end_time]
+        3. Each comment sentence should include:
+        - Name of the player who hit the ball in short: the last name of the player, e.g. "李" for "李宗伟"
         - Player action sequence (with shot types)
         - Tactical analysis
-        - Score update
+        - Score update(get the match score from left-upper corner of the video)
         - Exciting/exclamatory commentary phrase
 
-        3. Style guidelines:
-        - Bilingual mix (Chinese technical terms + English phrases)
-        - Short, dynamic sentences (3-7 words for action descriptions)
-        - Tactical insights ("控网抢攻", "逼压底线")
-        - Emotional highlights ("Beautiful shot!", "What a rally!")
-        - Current score after each rally ("七比三")
-
-        Example format:
-        00:00:02,060 --> 00:00:02,740
-        {player1_name} serves with a short service
-        {player2_name} returns with cross-court net shot
-        "Nice placement!" 
-
-        00:00:02,740 --> 00:00:03,779
-        {player1_name} counters with rushing net shot
-        {player2_name} lifts defensive lob
-        "Great defensive play!"
-
-        The current video is the {rally_id}'th rally from the match, 
-        which lasts from frame {start_frame} to frame {end_frame}.
+        4. Style guidelines:
+        - Use nicknames or abbreviations like “{player1_nickname}” and “{player2_nickname}” when appropriate.
+        - Chinese commentary only
+        - Short, dynamic sentences (3 to 7 words for action descriptions)
+        - Tactical insights e.g. ("控网抢攻", "逼压底线")
+        - Do not generate too much emotional highlights
 
         Generate commentary that:
         1. Precisely identifies each shot type
         2. Explains player strategies
         3. Maintains exciting play-by-play flow
         4. Updates score regularly
-        5. Uses natural bilingual expressions
+        5. Avoids excessive emotional highlights
+        6. Only Chinese commentary
         extra requirements by user:
         {user_input}
         """
-
+    print(prompt)
     prediction = get_qwen_ans(rally_choice, prompt, model, tokenizer, max_num_frames, generation_config) 
     return prediction
 
@@ -212,13 +554,13 @@ def draw_heatmap(ax, df, player):
                fontweight='bold')
 
 
-def draw_match_data(csv_path,mode='all'):
+def draw_match_data(mode='all'):
     # 复用之前的场地绘制函数
     fig = draw_badminton_court()  
     ax = fig.gca()
     
     # 读取比赛数据
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv("/home/jovyan/2024-srtp/srtp-final/Anthony_Sinisuka_Ginting_Lee_Zii_Jia_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals/set1.csv")
     df = coordinate_transform(df)  # 执行坐标变换
     
     # 可视化参数设置
@@ -447,8 +789,8 @@ def process_video_result(outputs_dir):
         output_video_path = video_output_dir / f"video_{rally_id}_h264.mp4"
         # ffmpeg -i input.mp4 -c:v libx264 -c:a copy output.mp4
         # 这里使用ffmpeg将视频文件转换为h264编码格式
-        ffmpeg_cmd = f"ffmpeg -y -i {video_path} -c:v libx264 -c:a copy {output_video_path}"
-        subprocess.run(ffmpeg_cmd, shell=True, check=True)
+        # ffmpeg_cmd = f"ffmpeg -y -i {video_path} -c:v libx264 -c:a copy {output_video_path}"
+        # subprocess.run(ffmpeg_cmd, shell=True, check=True)
         # 检查视频文件是否存在
         
         # Gradio Gallery支持两种格式：
@@ -482,10 +824,10 @@ with gr.Blocks() as demo:
 
             video_input = gr.Video(label="上传视频文件")
             video_input.GRADIO_CACHE = f"data/{get_today()}"
-            segment_button = gr.Button("分割回合")
+            segment_button = gr.Button("分割回合", variant="primary")
             rally_data = gr.JSON(
                 label="分割结果",
-                visible=True  # 确保组件可见
+                visible=False  # 确保组件可见
             )
         
 
@@ -494,58 +836,83 @@ with gr.Blocks() as demo:
                 label="选择体育运动",
                 value="羽毛球"
             )
-
-            players_options = ["Chen Long", "Lin Dan", "Lee Chong Wei", "Kento Momota", "Viktor Axelsen", "Shi Yuqi", "Jonatan Christie", "Ng Ka Long Angus", "Kidambi Srikanth", "Chou Tien-chen"]
+            players_options = ["林丹", "李宗伟", "谌龙", "桃田贤斗", "安赛龙", "石宇奇", "乔纳坦·克里斯蒂", "李梓嘉", "安东尼·西尼苏卡·金廷", "周天成"]
 
             player1_name = gr.Dropdown(
                 choices=players_options,
                 label="Player 1",
-                value="Chen Long"  # Set default selected player
+                value="谌龙"  # Set default selected player
             )
 
             player2_name = gr.Dropdown(
                 choices=players_options,
                 label="Player 2",
-                value="Lin Dan"  # Set default selected player
+                value="林丹"  # Set default selected player
             )
+            video_dropdown = gr.Dropdown(
+                label="选择回合视频",
+                choices=[1,2],  # 初始为空
+                visible=True,  # 初始隐藏，处理完成后显示
+                value=1
+           )
         with gr.Column(scale=6,min_width=700):
             gallery = gr.Gallery(
                 label="Generated images", show_label=False, elem_id="gallery"
             , columns=[3], rows=[1], object_fit="contain", height="auto")
-               
+            plot_video_action_list = gr.Plot(label="action sequence")
             #上传csv文件:
-            csv_file_upload = gr.File(
-                label="Upload CSV File",
-                file_types=[".csv"],
-                type="filepath"
-            )
-            csv_file_upload.GRADIO_CACHE = f"data/{get_today()}"
             vis_choice =  gr.Dropdown(choices=["player", "ball", "all"], value="player")
-            upload_csv_button = gr.Button("Upload CSV")
+            with gr.Column():
+                actions_button = gr.Button("Get Action", variant="primary")
+                upload_csv_button = gr.Button("Get Match Statistics", variant="primary")
+           
+
             #控制可见的图例:
 
 
-        with gr.Column(scale=2):
+        with gr.Column(scale=4):
+            match_segment = gr.Dropdown(
+                choices=["第一场", "第二场", "第三场"],
+                label="Select Match Segment",
+                value="第一场"
+            )
+             
+            # 新增可视化按钮
+            stats_button = gr.Button("Show Match Stats", variant="primary")
+            
+            # 新增统计图表展示区域
+            stats_plot = gr.Plot(label="Match Statistics")
             gr.Markdown("## Match Statistics Visualization")
             plot = gr.Plot(label="Badminton Court",value=draw_badminton_court())
     with gr.Row():
-        gr.Markdown("## Build Commentary Agent")        
-        chat_response = gr.Textbox(
-            label="AI Commentary",
-            placeholder="AI Commentary",
-            lines=10
-        )
-        user_input = gr.Textbox(label="用户输入", lines=3)
-        video_dropdown = gr.Dropdown(
-            label="选择回合视频",
-            choices=[1,2],  # 初始为空
-            visible=True,  # 初始隐藏，处理完成后显示
-            value=1
-        )
-        qwen_button = gr.Button("执行分析", variant="primary")
-            
+        with gr.Column():
+            gr.Markdown("## Build Commentary Agent")        
+            chat_response = gr.Textbox(
+                label="AI Commentary",
+                placeholder="AI Commentary",
+                lines=10
+            )
+            user_input = gr.Textbox(label="用户输入", lines=3)
+            qwen_button = gr.Button("执行分析", variant="primary")
+            voice_button = gr.Button("语音合成", variant="primary")
+
 
  # 交互逻辑绑定
+    voice_button.click(
+        fn=commentary_generator,
+        inputs=[video_dropdown,chat_response,rally_data],
+        outputs=None
+    )
+    actions_button.click(
+        fn=get_action_plot,
+        inputs=[video_dropdown,rally_data],
+        outputs=plot_video_action_list
+    )
+    stats_button.click(
+        fn=visualize_match_data,
+        inputs=[match_segment],
+        outputs=stats_plot
+    )
     qwen_button.click(
         fn=qwen_predict,
         inputs=[user_input, sport_dropdown, player1_name, player2_name,rally_data,video_dropdown],
@@ -553,7 +920,7 @@ with gr.Blocks() as demo:
     )
     upload_csv_button.click(
         fn=draw_match_data,
-        inputs=[csv_file_upload, vis_choice],
+        inputs=[vis_choice],
         outputs=plot
     )
     segment_button.click(
@@ -563,5 +930,5 @@ with gr.Blocks() as demo:
     )
 
 if __name__ == "__main__":
-    # model, tokenizer, image_processor, max_num_frames, generation_config = get_qwen_model()
+    model, tokenizer, image_processor, max_num_frames, generation_config = get_qwen_model()
     demo.launch(share=True)

@@ -23,12 +23,12 @@ import json
 # ]
 
 label_names=[
-"网前技术/短发球",
-"网前起高球，推挑，发高球",
-"下压",
-"防守挡网",
-"高远球",
-"平抽球，过渡，抽压"
+"net shot",
+"lift",
+"smash",
+"defensive drive",
+"clear",
+"flat shot"
 ]
 
 # === 读取你的 JSON 文件 ===

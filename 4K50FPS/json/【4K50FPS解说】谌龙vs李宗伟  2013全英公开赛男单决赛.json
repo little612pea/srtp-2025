@@ -1,0 +1,3441 @@
+{
+    "font_size": 0.4,
+    "font_color": "#FFFFFF",
+    "background_alpha": 0.5,
+    "background_color": "#9C27B0",
+    "Stroke": "none",
+    "type": "AIsubtitle",
+    "lang": "zh",
+    "version": "v1.7.0.4",
+    "body": [
+        {
+            "from": 0.48,
+            "to": 1,
+            "sid": 1,
+            "location": 2,
+            "content": "大家好",
+            "music": 0,
+            "idx": 0
+        },
+        {
+            "from": 1,
+            "to": 2.1,
+            "sid": 2,
+            "location": 2,
+            "content": "我是小武",
+            "music": 0,
+            "idx": 1
+        },
+        {
+            "from": 2.1,
+            "to": 4.2,
+            "sid": 3,
+            "location": 2,
+            "content": "今天和大家一同观赏的是",
+            "music": 0,
+            "idx": 2
+        },
+        {
+            "from": 4.2,
+            "to": 7.529,
+            "sid": 4,
+            "location": 2,
+            "content": "2013年全英公开赛男单决赛",
+            "music": 0,
+            "idx": 3
+        },
+        {
+            "from": 7.849,
+            "to": 10.009,
+            "sid": 5,
+            "location": 2,
+            "content": "由中国选手陈龙",
+            "music": 0,
+            "idx": 4
+        },
+        {
+            "from": 12.66,
+            "to": 15.42,
+            "sid": 6,
+            "location": 2,
+            "content": "对阵马来西亚选手李宗伟",
+            "music": 0,
+            "idx": 5
+        },
+        {
+            "from": 16.88,
+            "to": 19.68,
+            "sid": 7,
+            "location": 2,
+            "content": "第一局四比零比分球抢攻",
+            "music": 0,
+            "idx": 6
+        },
+        {
+            "from": 21.2,
+            "to": 22.3,
+            "sid": 8,
+            "location": 2,
+            "content": "往前跟进",
+            "music": 0,
+            "idx": 7
+        },
+        {
+            "from": 22.3,
+            "to": 24.8,
+            "sid": 9,
+            "location": 2,
+            "content": "龙高质量回搓得分",
+            "music": 0,
+            "idx": 8
+        },
+        {
+            "from": 32.48,
+            "to": 35.36,
+            "sid": 10,
+            "location": 2,
+            "content": "五比零比分球下压",
+            "music": 0,
+            "idx": 9
+        },
+        {
+            "from": 36.45,
+            "to": 38.61,
+            "sid": 11,
+            "location": 2,
+            "content": "龙挡网摆脱李回搓龙",
+            "music": 0,
+            "idx": 10
+        },
+        {
+            "from": 38.61,
+            "to": 41.29,
+            "sid": 12,
+            "location": 2,
+            "content": "高质量停顿分球得分",
+            "music": 0,
+            "idx": 11
+        },
+        {
+            "from": 47.22,
+            "to": 49.46,
+            "sid": 13,
+            "location": 2,
+            "content": "六比零里推头顶",
+            "music": 0,
+            "idx": 12
+        },
+        {
+            "from": 49.46,
+            "to": 52.56,
+            "sid": 14,
+            "location": 2,
+            "content": "龙下压李反顶破坏连贯李过渡",
+            "music": 0,
+            "idx": 13
+        },
+        {
+            "from": 52.56,
+            "to": 54,
+            "sid": 15,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 14
+        },
+        {
+            "from": 54,
+            "to": 55.43,
+            "sid": 16,
+            "location": 2,
+            "content": "龙推挑头顶",
+            "music": 0,
+            "idx": 15
+        },
+        {
+            "from": 55.43,
+            "to": 56.91,
+            "sid": 17,
+            "location": 2,
+            "content": "李下压龙反顶",
+            "music": 0,
+            "idx": 16
+        },
+        {
+            "from": 56.91,
+            "to": 57.95,
+            "sid": 18,
+            "location": 2,
+            "content": "破坏连贯抓",
+            "music": 0,
+            "idx": 17
+        },
+        {
+            "from": 57.95,
+            "to": 60.54,
+            "sid": 19,
+            "location": 2,
+            "content": "摆脱头顶杀斜线得分",
+            "music": 0,
+            "idx": 18
+        },
+        {
+            "from": 66.86,
+            "to": 70,
+            "sid": 20,
+            "location": 2,
+            "content": "七比零里空往下压",
+            "music": 0,
+            "idx": 19
+        },
+        {
+            "from": 71.32,
+            "to": 76.59,
+            "sid": 21,
+            "location": 2,
+            "content": "龙回放离挡远网抓推上网跟进",
+            "music": 0,
+            "idx": 20
+        },
+        {
+            "from": 76.59,
+            "to": 79.72,
+            "sid": 22,
+            "location": 2,
+            "content": "龙推挑头顶抓摆脱进攻",
+            "music": 0,
+            "idx": 21
+        },
+        {
+            "from": 79.72,
+            "to": 81.02,
+            "sid": 23,
+            "location": 2,
+            "content": "李鱼跃救球",
+            "music": 0,
+            "idx": 22
+        },
+        {
+            "from": 81.02,
+            "to": 83.14,
+            "sid": 24,
+            "location": 2,
+            "content": "龙网前分斜线里反控转身",
+            "music": 0,
+            "idx": 23
+        },
+        {
+            "from": 83.14,
+            "to": 85.46,
+            "sid": 25,
+            "location": 2,
+            "content": "龙反拍过度推头顶",
+            "music": 0,
+            "idx": 24
+        },
+        {
+            "from": 85.46,
+            "to": 87.72,
+            "sid": 26,
+            "location": 2,
+            "content": "李头顶突击得分",
+            "music": 0,
+            "idx": 25
+        },
+        {
+            "from": 87.72,
+            "to": 90.72,
+            "sid": 27,
+            "location": 2,
+            "content": "This point on the board first time",
+            "music": 0,
+            "idx": 26
+        },
+        {
+            "from": 91.8,
+            "to": 96.5,
+            "sid": 28,
+            "location": 2,
+            "content": "So far that leeching weis putting into pation in this attack",
+            "music": 0,
+            "idx": 27
+        },
+        {
+            "from": 96.5,
+            "to": 100.44,
+            "sid": 29,
+            "location": 2,
+            "content": "一比七",
+            "music": 0,
+            "idx": 28
+        },
+        {
+            "from": 100.44,
+            "to": 102.38,
+            "sid": 30,
+            "location": 2,
+            "content": "龙控正手里过度",
+            "music": 0,
+            "idx": 29
+        },
+        {
+            "from": 102.38,
+            "to": 103.74,
+            "sid": 31,
+            "location": 2,
+            "content": "后场抓过度抢",
+            "music": 0,
+            "idx": 30
+        },
+        {
+            "from": 103.74,
+            "to": 107.38,
+            "sid": 32,
+            "location": 2,
+            "content": "放头顶突击得分",
+            "music": 0,
+            "idx": 31
+        },
+        {
+            "from": 110.68,
+            "to": 112.44,
+            "sid": 33,
+            "location": 2,
+            "content": "Look at the athletic",
+            "music": 0,
+            "idx": 32
+        },
+        {
+            "from": 112.44,
+            "to": 113.36,
+            "sid": 34,
+            "location": 2,
+            "content": "Ability",
+            "music": 0,
+            "idx": 33
+        },
+        {
+            "from": 113.36,
+            "to": 116.36,
+            "sid": 35,
+            "location": 2,
+            "content": "Poetry in motion",
+            "music": 0,
+            "idx": 34
+        },
+        {
+            "from": 117.92,
+            "to": 122.769,
+            "sid": 36,
+            "location": 2,
+            "content": "二比七龙控头顶往前逼压",
+            "music": 0,
+            "idx": 35
+        },
+        {
+            "from": 122.769,
+            "to": 124.609,
+            "sid": 37,
+            "location": 2,
+            "content": "双方往前较量",
+            "music": 0,
+            "idx": 36
+        },
+        {
+            "from": 124.609,
+            "to": 126.149,
+            "sid": 38,
+            "location": 2,
+            "content": "龙推挑头顶",
+            "music": 0,
+            "idx": 37
+        },
+        {
+            "from": 126.149,
+            "to": 127.169,
+            "sid": 39,
+            "location": 2,
+            "content": "李下压",
+            "music": 0,
+            "idx": 38
+        },
+        {
+            "from": 127.169,
+            "to": 128.649,
+            "sid": 40,
+            "location": 2,
+            "content": "双方往前较量",
+            "music": 0,
+            "idx": 39
+        },
+        {
+            "from": 128.649,
+            "to": 130.664,
+            "sid": 41,
+            "location": 2,
+            "content": "龙连续控正手",
+            "music": 0,
+            "idx": 40
+        },
+        {
+            "from": 132.11,
+            "to": 135.35,
+            "sid": 42,
+            "location": 2,
+            "content": "李过渡后场往前分斜线龙",
+            "music": 0,
+            "idx": 41
+        },
+        {
+            "from": 135.35,
+            "to": 138.91,
+            "sid": 43,
+            "location": 2,
+            "content": "回放里回搓头顶杀一拍",
+            "music": 0,
+            "idx": 42
+        },
+        {
+            "from": 138.91,
+            "to": 139.79,
+            "sid": 44,
+            "location": 2,
+            "content": "龙接杀分",
+            "music": 0,
+            "idx": 43
+        },
+        {
+            "from": 139.79,
+            "to": 142.31,
+            "sid": 45,
+            "location": 2,
+            "content": "对角蓝调头顶突击",
+            "music": 0,
+            "idx": 44
+        },
+        {
+            "from": 142.31,
+            "to": 143.51,
+            "sid": 46,
+            "location": 2,
+            "content": "直线里接杀分",
+            "music": 0,
+            "idx": 45
+        },
+        {
+            "from": 143.51,
+            "to": 145.76,
+            "sid": 47,
+            "location": 2,
+            "content": "对角龙回球出界",
+            "music": 0,
+            "idx": 46
+        },
+        {
+            "from": 151.88,
+            "to": 153.04,
+            "sid": 48,
+            "location": 2,
+            "content": "三比七",
+            "music": 0,
+            "idx": 47
+        },
+        {
+            "from": 153.04,
+            "to": 156.46,
+            "sid": 49,
+            "location": 2,
+            "content": "双方斗网里侧身突击",
+            "music": 0,
+            "idx": 48
+        },
+        {
+            "from": 156.46,
+            "to": 161.11,
+            "sid": 50,
+            "location": 2,
+            "content": "一拍推挑头顶龙头顶突击直线得分",
+            "music": 0,
+            "idx": 49
+        },
+        {
+            "from": 161.63,
+            "to": 165.39,
+            "sid": 51,
+            "location": 2,
+            "content": "Three both of them retrieving abilities",
+            "music": 0,
+            "idx": 50
+        },
+        {
+            "from": 165.39,
+            "to": 169.22,
+            "sid": 52,
+            "location": 2,
+            "content": "That at times are hard to believe",
+            "music": 0,
+            "idx": 51
+        },
+        {
+            "from": 169.66,
+            "to": 173.47,
+            "sid": 53,
+            "location": 2,
+            "content": "But they also both have the big attacking play",
+            "music": 0,
+            "idx": 52
+        },
+        {
+            "from": 173.87,
+            "to": 176.19,
+            "sid": 54,
+            "location": 2,
+            "content": "八比三里分球抢攻",
+            "music": 0,
+            "idx": 53
+        },
+        {
+            "from": 178.91,
+            "to": 182.81,
+            "sid": 55,
+            "location": 2,
+            "content": "上网分对角头顶突击得分",
+            "music": 0,
+            "idx": 54
+        },
+        {
+            "from": 183.61,
+            "to": 184.63,
+            "sid": 56,
+            "location": 2,
+            "content": "十比四",
+            "music": 0,
+            "idx": 55
+        },
+        {
+            "from": 184.63,
+            "to": 186.89,
+            "sid": 57,
+            "location": 2,
+            "content": "里空转身抓过度",
+            "music": 0,
+            "idx": 56
+        },
+        {
+            "from": 186.89,
+            "to": 189.21,
+            "sid": 58,
+            "location": 2,
+            "content": "网前连续逼压得分",
+            "music": 0,
+            "idx": 57
+        },
+        {
+            "from": 189.65,
+            "to": 190.51,
+            "sid": 59,
+            "location": 2,
+            "content": "五比十",
+            "music": 0,
+            "idx": 58
+        },
+        {
+            "from": 190.51,
+            "to": 196.17,
+            "sid": 60,
+            "location": 2,
+            "content": "龙推挑头顶李滑板斜线控网龙反控正手抓过度",
+            "music": 0,
+            "idx": 59
+        },
+        {
+            "from": 196.17,
+            "to": 198.18,
+            "sid": 61,
+            "location": 2,
+            "content": "头顶杀斜线得分",
+            "music": 0,
+            "idx": 60
+        },
+        {
+            "from": 198.42,
+            "to": 199.94,
+            "sid": 62,
+            "location": 2,
+            "content": "Oh that's lovely",
+            "music": 0,
+            "idx": 61
+        },
+        {
+            "from": 201.3,
+            "to": 201.62,
+            "sid": 63,
+            "location": 2,
+            "content": "Well",
+            "music": 0,
+            "idx": 62
+        },
+        {
+            "from": 201.62,
+            "to": 203.96,
+            "sid": 64,
+            "location": 2,
+            "content": "We were talking yesterday",
+            "music": 0,
+            "idx": 63
+        },
+        {
+            "from": 203.96,
+            "to": 209.01,
+            "sid": 65,
+            "location": 2,
+            "content": "When uh chong was playing against jan yugson about",
+            "music": 0,
+            "idx": 64
+        },
+        {
+            "from": 209.01,
+            "to": 209.81,
+            "sid": 66,
+            "location": 2,
+            "content": "How we",
+            "music": 0,
+            "idx": 65
+        },
+        {
+            "from": 209.81,
+            "to": 213.33,
+            "sid": 67,
+            "location": 2,
+            "content": "11比五龙抓推李接杀分",
+            "music": 0,
+            "idx": 66
+        },
+        {
+            "from": 213.33,
+            "to": 214.67,
+            "sid": 68,
+            "location": 2,
+            "content": "对角龙往前逼压",
+            "music": 0,
+            "idx": 67
+        },
+        {
+            "from": 214.67,
+            "to": 216.85,
+            "sid": 69,
+            "location": 2,
+            "content": "推正手李抽压",
+            "music": 0,
+            "idx": 68
+        },
+        {
+            "from": 216.85,
+            "to": 217.85,
+            "sid": 70,
+            "location": 2,
+            "content": "往前跟进",
+            "music": 0,
+            "idx": 69
+        },
+        {
+            "from": 217.85,
+            "to": 220.37,
+            "sid": 71,
+            "location": 2,
+            "content": "龙往前分斜线里反控转身龙过度",
+            "music": 0,
+            "idx": 70
+        },
+        {
+            "from": 220.37,
+            "to": 224.33,
+            "sid": 72,
+            "location": 2,
+            "content": "后场抓过度进攻里防反",
+            "music": 0,
+            "idx": 71
+        },
+        {
+            "from": 225.21,
+            "to": 227.829,
+            "sid": 73,
+            "location": 2,
+            "content": "龙挡网摆脱李推挑头顶",
+            "music": 0,
+            "idx": 72
+        },
+        {
+            "from": 227.829,
+            "to": 229.829,
+            "sid": 74,
+            "location": 2,
+            "content": "但抓摆脱收掉下网",
+            "music": 0,
+            "idx": 73
+        },
+        {
+            "from": 231.229,
+            "to": 232.289,
+            "sid": 75,
+            "location": 2,
+            "content": "12比五",
+            "music": 0,
+            "idx": 74
+        },
+        {
+            "from": 232.289,
+            "to": 233.709,
+            "sid": 76,
+            "location": 2,
+            "content": "李推挑头顶",
+            "music": 0,
+            "idx": 75
+        },
+        {
+            "from": 233.709,
+            "to": 236.915,
+            "sid": 77,
+            "location": 2,
+            "content": "龙下压李放远网抓推啊",
+            "music": 0,
+            "idx": 76
+        },
+        {
+            "from": 238.04,
+            "to": 238.96,
+            "sid": 78,
+            "location": 2,
+            "content": "上网快推",
+            "music": 0,
+            "idx": 77
+        },
+        {
+            "from": 238.96,
+            "to": 240.36,
+            "sid": 79,
+            "location": 2,
+            "content": "转身抓过度",
+            "music": 0,
+            "idx": 78
+        },
+        {
+            "from": 240.36,
+            "to": 241.64,
+            "sid": 80,
+            "location": 2,
+            "content": "头顶杀斜线得分",
+            "music": 0,
+            "idx": 79
+        },
+        {
+            "from": 243.48,
+            "to": 246.07,
+            "sid": 81,
+            "location": 2,
+            "content": "Six twelfand",
+            "music": 0,
+            "idx": 80
+        },
+        {
+            "from": 246.07,
+            "to": 248.2,
+            "sid": 82,
+            "location": 2,
+            "content": "Deep corner non",
+            "music": 0,
+            "idx": 81
+        },
+        {
+            "from": 249.24,
+            "to": 250.24,
+            "sid": 83,
+            "location": 2,
+            "content": "六比12",
+            "music": 0,
+            "idx": 82
+        },
+        {
+            "from": 250.24,
+            "to": 254.99,
+            "sid": 84,
+            "location": 2,
+            "content": "龙网前分斜线下压李弹斜线摆脱离反拍下压龙",
+            "music": 0,
+            "idx": 83
+        },
+        {
+            "from": 254.99,
+            "to": 256.67,
+            "sid": 85,
+            "location": 2,
+            "content": "高质量斜线摆脱抓过度",
+            "music": 0,
+            "idx": 84
+        },
+        {
+            "from": 256.67,
+            "to": 258.13,
+            "sid": 86,
+            "location": 2,
+            "content": "头顶杀斜线得分",
+            "music": 0,
+            "idx": 85
+        },
+        {
+            "from": 258.13,
+            "to": 259.079,
+            "sid": 87,
+            "location": 2,
+            "content": "Six",
+            "music": 0,
+            "idx": 86
+        },
+        {
+            "from": 263.259,
+            "to": 264.219,
+            "sid": 88,
+            "location": 2,
+            "content": "14比六",
+            "music": 0,
+            "idx": 87
+        },
+        {
+            "from": 264.219,
+            "to": 267.379,
+            "sid": 89,
+            "location": 2,
+            "content": "李推挑头顶龙下压放网",
+            "music": 0,
+            "idx": 88
+        },
+        {
+            "from": 267.379,
+            "to": 268.899,
+            "sid": 90,
+            "location": 2,
+            "content": "李推挑过顶",
+            "music": 0,
+            "idx": 89
+        },
+        {
+            "from": 268.899,
+            "to": 270.739,
+            "sid": 91,
+            "location": 2,
+            "content": "抓过度进攻",
+            "music": 0,
+            "idx": 90
+        },
+        {
+            "from": 271.25,
+            "to": 272.17,
+            "sid": 92,
+            "location": 2,
+            "content": "控网下压",
+            "music": 0,
+            "idx": 91
+        },
+        {
+            "from": 274.69,
+            "to": 277.53,
+            "sid": 93,
+            "location": 2,
+            "content": "龙网前分对脚底推挑正手",
+            "music": 0,
+            "idx": 92
+        },
+        {
+            "from": 278.71,
+            "to": 280.57,
+            "sid": 94,
+            "location": 2,
+            "content": "龙过度里回放",
+            "music": 0,
+            "idx": 93
+        },
+        {
+            "from": 280.57,
+            "to": 283.19,
+            "sid": 95,
+            "location": 2,
+            "content": "龙回搓李反控转身抓",
+            "music": 0,
+            "idx": 94
+        },
+        {
+            "from": 283.19,
+            "to": 283.87,
+            "sid": 96,
+            "location": 2,
+            "content": "摆脱滑板",
+            "music": 0,
+            "idx": 95
+        },
+        {
+            "from": 283.87,
+            "to": 285.08,
+            "sid": 97,
+            "location": 2,
+            "content": "吊一拍",
+            "music": 0,
+            "idx": 96
+        },
+        {
+            "from": 285.48,
+            "to": 286.36,
+            "sid": 98,
+            "location": 2,
+            "content": "上网推挑",
+            "music": 0,
+            "idx": 97
+        },
+        {
+            "from": 286.36,
+            "to": 287.56,
+            "sid": 99,
+            "location": 2,
+            "content": "正手抓",
+            "music": 0,
+            "idx": 98
+        },
+        {
+            "from": 287.56,
+            "to": 289.16,
+            "sid": 100,
+            "location": 2,
+            "content": "过度抢放",
+            "music": 0,
+            "idx": 99
+        },
+        {
+            "from": 290.19,
+            "to": 293.67,
+            "sid": 101,
+            "location": 2,
+            "content": "高质量滑板吊对角得分",
+            "music": 0,
+            "idx": 100
+        },
+        {
+            "from": 301.44,
+            "to": 302.36,
+            "sid": 102,
+            "location": 2,
+            "content": "七比14",
+            "music": 0,
+            "idx": 101
+        },
+        {
+            "from": 302.36,
+            "to": 304,
+            "sid": 103,
+            "location": 2,
+            "content": "龙推头顶里过度",
+            "music": 0,
+            "idx": 102
+        },
+        {
+            "from": 304,
+            "to": 306.54,
+            "sid": 104,
+            "location": 2,
+            "content": "后场龙斜线过度理回放",
+            "music": 0,
+            "idx": 103
+        },
+        {
+            "from": 306.54,
+            "to": 309.62,
+            "sid": 105,
+            "location": 2,
+            "content": "龙推挑头顶抓过度进攻",
+            "music": 0,
+            "idx": 104
+        },
+        {
+            "from": 309.62,
+            "to": 311.08,
+            "sid": 106,
+            "location": 2,
+            "content": "李接杀分斜线",
+            "music": 0,
+            "idx": 105
+        },
+        {
+            "from": 311.08,
+            "to": 312.02,
+            "sid": 107,
+            "location": 2,
+            "content": "龙推正手",
+            "music": 0,
+            "idx": 106
+        },
+        {
+            "from": 312.02,
+            "to": 314.1,
+            "sid": 108,
+            "location": 2,
+            "content": "双方抽挡较量",
+            "music": 0,
+            "idx": 107
+        },
+        {
+            "from": 316.13,
+            "to": 318.01,
+            "sid": 109,
+            "location": 2,
+            "content": "李推头顶龙下压",
+            "music": 0,
+            "idx": 108
+        },
+        {
+            "from": 319.17,
+            "to": 320.69,
+            "sid": 110,
+            "location": 2,
+            "content": "控网下压",
+            "music": 0,
+            "idx": 109
+        },
+        {
+            "from": 323.24,
+            "to": 325.92,
+            "sid": 111,
+            "location": 2,
+            "content": "空头顶抓摆脱进攻",
+            "music": 0,
+            "idx": 110
+        },
+        {
+            "from": 325.92,
+            "to": 327.34,
+            "sid": 112,
+            "location": 2,
+            "content": "李鱼跃救球",
+            "music": 0,
+            "idx": 111
+        },
+        {
+            "from": 327.34,
+            "to": 328.28,
+            "sid": 113,
+            "location": 2,
+            "content": "龙上网快推",
+            "music": 0,
+            "idx": 112
+        },
+        {
+            "from": 328.28,
+            "to": 329.64,
+            "sid": 114,
+            "location": 2,
+            "content": "正手里过渡",
+            "music": 0,
+            "idx": 113
+        },
+        {
+            "from": 329.64,
+            "to": 332.159,
+            "sid": 115,
+            "location": 2,
+            "content": "后场平高压",
+            "music": 0,
+            "idx": 114
+        },
+        {
+            "from": 332.159,
+            "to": 333.659,
+            "sid": 116,
+            "location": 2,
+            "content": "头顶抓过度",
+            "music": 0,
+            "idx": 115
+        },
+        {
+            "from": 333.659,
+            "to": 339.479,
+            "sid": 117,
+            "location": 2,
+            "content": "侧身突击一拍推头顶龙软压里回放",
+            "music": 0,
+            "idx": 116
+        },
+        {
+            "from": 340.46,
+            "to": 341.94,
+            "sid": 118,
+            "location": 2,
+            "content": "双方左半区较量",
+            "music": 0,
+            "idx": 117
+        },
+        {
+            "from": 344.74,
+            "to": 347.11,
+            "sid": 119,
+            "location": 2,
+            "content": "里抓过度抢放龙",
+            "music": 0,
+            "idx": 118
+        },
+        {
+            "from": 347.11,
+            "to": 350.11,
+            "sid": 120,
+            "location": 2,
+            "content": "快推拉开里抽压过渡",
+            "music": 0,
+            "idx": 119
+        },
+        {
+            "from": 350.11,
+            "to": 352.309,
+            "sid": 121,
+            "location": 2,
+            "content": "后场龙劈掉斜线",
+            "music": 0,
+            "idx": 120
+        },
+        {
+            "from": 352.309,
+            "to": 354.609,
+            "sid": 122,
+            "location": 2,
+            "content": "里低手位回勾龙回放",
+            "music": 0,
+            "idx": 121
+        },
+        {
+            "from": 354.609,
+            "to": 356.049,
+            "sid": 123,
+            "location": 2,
+            "content": "李推挑正手",
+            "music": 0,
+            "idx": 122
+        },
+        {
+            "from": 356.049,
+            "to": 357.049,
+            "sid": 124,
+            "location": 2,
+            "content": "但抓过度",
+            "music": 0,
+            "idx": 123
+        },
+        {
+            "from": 357.049,
+            "to": 359.189,
+            "sid": 125,
+            "location": 2,
+            "content": "滑板吊斜线失误",
+            "music": 0,
+            "idx": 124
+        },
+        {
+            "from": 367.4,
+            "to": 370.89,
+            "sid": 126,
+            "location": 2,
+            "content": "The sharpness they play the shots with retrieving",
+            "music": 0,
+            "idx": 125
+        },
+        {
+            "from": 370.89,
+            "to": 372.69,
+            "sid": 127,
+            "location": 2,
+            "content": "Not giving any",
+            "music": 0,
+            "idx": 126
+        },
+        {
+            "from": 375.49,
+            "to": 379.19,
+            "sid": 128,
+            "location": 2,
+            "content": "九比15龙推头顶李软压龙回放",
+            "music": 0,
+            "idx": 127
+        },
+        {
+            "from": 379.19,
+            "to": 383.67,
+            "sid": 129,
+            "location": 2,
+            "content": "李反控转身抓过度杀上网连贯得分",
+            "music": 0,
+            "idx": 128
+        },
+        {
+            "from": 384.47,
+            "to": 389,
+            "sid": 130,
+            "location": 2,
+            "content": "He got the reply had to come back straight",
+            "music": 0,
+            "idx": 129
+        },
+        {
+            "from": 389.56,
+            "to": 394.48,
+            "sid": 131,
+            "location": 2,
+            "content": "十比15龙控网抓扑李高质量反顶得分",
+            "music": 0,
+            "idx": 130
+        },
+        {
+            "from": 396.04,
+            "to": 397.44,
+            "sid": 132,
+            "location": 2,
+            "content": "Was pretty good",
+            "music": 0,
+            "idx": 131
+        },
+        {
+            "from": 397.44,
+            "to": 402.53,
+            "sid": 133,
+            "location": 2,
+            "content": "But look at the reactions from leon right",
+            "music": 0.03378378264244834,
+            "idx": 132
+        },
+        {
+            "from": 403.17,
+            "to": 406.11,
+            "sid": 134,
+            "location": 2,
+            "content": "12比15比下压上网回放",
+            "music": 0,
+            "idx": 133
+        },
+        {
+            "from": 406.11,
+            "to": 407.77,
+            "sid": 135,
+            "location": 2,
+            "content": "逼起球起跳",
+            "music": 0,
+            "idx": 134
+        },
+        {
+            "from": 407.77,
+            "to": 409.36,
+            "sid": 136,
+            "location": 2,
+            "content": "重杀追身得分",
+            "music": 0,
+            "idx": 135
+        },
+        {
+            "from": 409.36,
+            "to": 410.72,
+            "sid": 137,
+            "location": 2,
+            "content": "17比13",
+            "music": 0,
+            "idx": 136
+        },
+        {
+            "from": 410.72,
+            "to": 412.08,
+            "sid": 138,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 137
+        },
+        {
+            "from": 412.08,
+            "to": 415.28,
+            "sid": 139,
+            "location": 2,
+            "content": "龙头顶突击一拍里防反",
+            "music": 0,
+            "idx": 138
+        },
+        {
+            "from": 417.24,
+            "to": 418.88,
+            "sid": 140,
+            "location": 2,
+            "content": "上网抢放龙推",
+            "music": 0,
+            "idx": 139
+        },
+        {
+            "from": 418.88,
+            "to": 420.62,
+            "sid": 141,
+            "location": 2,
+            "content": "挑头顶抓过度",
+            "music": 0,
+            "idx": 140
+        },
+        {
+            "from": 420.62,
+            "to": 421.88,
+            "sid": 142,
+            "location": 2,
+            "content": "侧身突击一拍",
+            "music": 0,
+            "idx": 141
+        },
+        {
+            "from": 421.88,
+            "to": 422.84,
+            "sid": 143,
+            "location": 2,
+            "content": "上网跟进",
+            "music": 0,
+            "idx": 142
+        },
+        {
+            "from": 424.72,
+            "to": 426.8,
+            "sid": 144,
+            "location": 2,
+            "content": "下压龙抓推",
+            "music": 0,
+            "idx": 143
+        },
+        {
+            "from": 427.96,
+            "to": 430.12,
+            "sid": 145,
+            "location": 2,
+            "content": "可惜上网推挑出界",
+            "music": 0,
+            "idx": 144
+        },
+        {
+            "from": 433.86,
+            "to": 434.94,
+            "sid": 146,
+            "location": 2,
+            "content": "14比17",
+            "music": 0,
+            "idx": 145
+        },
+        {
+            "from": 434.94,
+            "to": 436.9,
+            "sid": 147,
+            "location": 2,
+            "content": "同分球抢攻得分",
+            "music": 0,
+            "idx": 146
+        },
+        {
+            "from": 438.79,
+            "to": 439.93,
+            "sid": 148,
+            "location": 2,
+            "content": "18比14",
+            "music": 0,
+            "idx": 147
+        },
+        {
+            "from": 439.93,
+            "to": 441.63,
+            "sid": 149,
+            "location": 2,
+            "content": "李控网抢攻",
+            "music": 0,
+            "idx": 148
+        },
+        {
+            "from": 443.3,
+            "to": 446.22,
+            "sid": 150,
+            "location": 2,
+            "content": "上网推压抓摆脱起跳重杀得分",
+            "music": 0,
+            "idx": 149
+        },
+        {
+            "from": 449.06,
+            "to": 456.39,
+            "sid": 151,
+            "location": 2,
+            "content": "About to the next of the racket coming from above the shuttle",
+            "music": 0,
+            "idx": 150
+        },
+        {
+            "from": 456.39,
+            "to": 457.39,
+            "sid": 152,
+            "location": 2,
+            "content": "15比十",
+            "music": 0,
+            "idx": 151
+        },
+        {
+            "from": 457.39,
+            "to": 459.87,
+            "sid": 153,
+            "location": 2,
+            "content": "八龙网前分斜线抓推拦截抓摆",
+            "music": 0,
+            "idx": 152
+        },
+        {
+            "from": 459.87,
+            "to": 462.22,
+            "sid": 154,
+            "location": 2,
+            "content": "脱网前连续扑压得分",
+            "music": 0,
+            "idx": 153
+        },
+        {
+            "from": 467.78,
+            "to": 468.86,
+            "sid": 155,
+            "location": 2,
+            "content": "19比15",
+            "music": 0,
+            "idx": 154
+        },
+        {
+            "from": 468.86,
+            "to": 473.95,
+            "sid": 156,
+            "location": 2,
+            "content": "李控网头顶突击斜线抢搓逼起球",
+            "music": 0,
+            "idx": 155
+        },
+        {
+            "from": 473.95,
+            "to": 476.59,
+            "sid": 157,
+            "location": 2,
+            "content": "头顶杀斜线得分",
+            "music": 0,
+            "idx": 156
+        },
+        {
+            "from": 486.04,
+            "to": 487.84,
+            "sid": 158,
+            "location": 2,
+            "content": "16比19龙推正",
+            "music": 0,
+            "idx": 157
+        },
+        {
+            "from": 487.84,
+            "to": 490.939,
+            "sid": 159,
+            "location": 2,
+            "content": "手里抽压分球下压",
+            "music": 0,
+            "idx": 158
+        },
+        {
+            "from": 493.48,
+            "to": 494.96,
+            "sid": 160,
+            "location": 2,
+            "content": "推挑头顶龙",
+            "music": 0,
+            "idx": 159
+        },
+        {
+            "from": 494.96,
+            "to": 497.36,
+            "sid": 161,
+            "location": 2,
+            "content": "下压上网跟进",
+            "music": 0,
+            "idx": 160
+        },
+        {
+            "from": 498.04,
+            "to": 500.78,
+            "sid": 162,
+            "location": 2,
+            "content": "下压上网跟进",
+            "music": 0,
+            "idx": 161
+        },
+        {
+            "from": 500.78,
+            "to": 501.44,
+            "sid": 163,
+            "location": 2,
+            "content": "离反控",
+            "music": 0,
+            "idx": 162
+        },
+        {
+            "from": 501.44,
+            "to": 502.12,
+            "sid": 164,
+            "location": 2,
+            "content": "正手抓",
+            "music": 0,
+            "idx": 163
+        },
+        {
+            "from": 502.12,
+            "to": 505.05,
+            "sid": 165,
+            "location": 2,
+            "content": "摆脱网前高质量回放得手",
+            "music": 0,
+            "idx": 164
+        },
+        {
+            "from": 505.49,
+            "to": 507.09,
+            "sid": 166,
+            "location": 2,
+            "content": "Great any kind of taste",
+            "music": 0,
+            "idx": 165
+        },
+        {
+            "from": 507.09,
+            "to": 511.18,
+            "sid": 167,
+            "location": 2,
+            "content": "Suddenly can weighs in a better position on the court",
+            "music": 0,
+            "idx": 166
+        },
+        {
+            "from": 517.88,
+            "to": 522.8,
+            "sid": 168,
+            "location": 2,
+            "content": "17比19龙推头顶李下压控正手龙",
+            "music": 0,
+            "idx": 167
+        },
+        {
+            "from": 522.8,
+            "to": 525.52,
+            "sid": 169,
+            "location": 2,
+            "content": "蓝吊李推挑头顶龙下压离反顶",
+            "music": 0,
+            "idx": 168
+        },
+        {
+            "from": 525.52,
+            "to": 530.02,
+            "sid": 170,
+            "location": 2,
+            "content": "破坏连贯龙抽压推挑正手里劈掉斜线龙",
+            "music": 0,
+            "idx": 169
+        },
+        {
+            "from": 530.02,
+            "to": 531.92,
+            "sid": 171,
+            "location": 2,
+            "content": "回放里回搓",
+            "music": 0,
+            "idx": 170
+        },
+        {
+            "from": 532.2,
+            "to": 534.4,
+            "sid": 172,
+            "location": 2,
+            "content": "但滑板吊对角失误",
+            "music": 0,
+            "idx": 171
+        },
+        {
+            "from": 534.4,
+            "to": 539.72,
+            "sid": 173,
+            "location": 2,
+            "content": "20比17里控网头顶突击斜线龙挡网摆脱",
+            "music": 0,
+            "idx": 172
+        },
+        {
+            "from": 539.72,
+            "to": 541.04,
+            "sid": 174,
+            "location": 2,
+            "content": "以回搓下网",
+            "music": 0,
+            "idx": 173
+        },
+        {
+            "from": 541.04,
+            "to": 543.32,
+            "sid": 175,
+            "location": 2,
+            "content": "成龙赢得了首局比赛的胜利",
+            "music": 0,
+            "idx": 174
+        },
+        {
+            "from": 544.44,
+            "to": 550.2,
+            "sid": 176,
+            "location": 2,
+            "content": "That's probably just ma kennebecause",
+            "music": 0,
+            "idx": 175
+        },
+        {
+            "from": 550.2,
+            "to": 553.46,
+            "sid": 177,
+            "location": 2,
+            "content": "Very very unusual to see region way",
+            "music": 0,
+            "idx": 176
+        },
+        {
+            "from": 553.46,
+            "to": 555.9,
+            "sid": 178,
+            "location": 2,
+            "content": "Making errors like that",
+            "music": 0,
+            "idx": 177
+        },
+        {
+            "from": 558.82,
+            "to": 563.42,
+            "sid": 179,
+            "location": 2,
+            "content": "Twenty one seventeen neopening game",
+            "music": 0,
+            "idx": 178
+        },
+        {
+            "from": 563.42,
+            "to": 568.5,
+            "sid": 180,
+            "location": 2,
+            "content": "But it was not the best of starts from the former",
+            "music": 0,
+            "idx": 179
+        },
+        {
+            "from": 568.5,
+            "to": 571.35,
+            "sid": 181,
+            "location": 2,
+            "content": "Champion neutrong wei",
+            "music": 0,
+            "idx": 180
+        },
+        {
+            "from": 571.35,
+            "to": 575.23,
+            "sid": 182,
+            "location": 2,
+            "content": "第二局零比零李放网龙反控",
+            "music": 0,
+            "idx": 181
+        },
+        {
+            "from": 575.23,
+            "to": 577.31,
+            "sid": 183,
+            "location": 2,
+            "content": "正手抓过度下压",
+            "music": 0,
+            "idx": 182
+        },
+        {
+            "from": 577.31,
+            "to": 581.51,
+            "sid": 184,
+            "location": 2,
+            "content": "双方抽档较量里往前逼压高点分斜线",
+            "music": 0,
+            "idx": 183
+        },
+        {
+            "from": 581.51,
+            "to": 583.31,
+            "sid": 185,
+            "location": 2,
+            "content": "机会不好里选择过度",
+            "music": 0,
+            "idx": 184
+        },
+        {
+            "from": 583.31,
+            "to": 587.9,
+            "sid": 186,
+            "location": 2,
+            "content": "后场龙华板斜线里回放下压龙",
+            "music": 0,
+            "idx": 185
+        },
+        {
+            "from": 587.9,
+            "to": 590.42,
+            "sid": 187,
+            "location": 2,
+            "content": "高质量挡网实现反杀",
+            "music": 0,
+            "idx": 186
+        },
+        {
+            "from": 595.1,
+            "to": 595.58,
+            "sid": 188,
+            "location": 2,
+            "content": "Yeah",
+            "music": 0,
+            "idx": 187
+        },
+        {
+            "from": 595.58,
+            "to": 596.42,
+            "sid": 189,
+            "location": 2,
+            "content": "It was on the line",
+            "music": 0,
+            "idx": 188
+        },
+        {
+            "from": 596.42,
+            "to": 597.86,
+            "sid": 190,
+            "location": 2,
+            "content": "It was in",
+            "music": 0,
+            "idx": 189
+        },
+        {
+            "from": 607.24,
+            "to": 612.24,
+            "sid": 191,
+            "location": 2,
+            "content": "三比零龙抓推往前推",
+            "music": 0,
+            "idx": 190
+        },
+        {
+            "from": 612.24,
+            "to": 614.39,
+            "sid": 192,
+            "location": 2,
+            "content": "扑李分球下压",
+            "music": 0,
+            "idx": 191
+        },
+        {
+            "from": 617.67,
+            "to": 619.15,
+            "sid": 193,
+            "location": 2,
+            "content": "双方往前较量",
+            "music": 0,
+            "idx": 192
+        },
+        {
+            "from": 619.15,
+            "to": 621.43,
+            "sid": 194,
+            "location": 2,
+            "content": "龙推挑过顶里过度",
+            "music": 0,
+            "idx": 193
+        },
+        {
+            "from": 621.43,
+            "to": 623.999,
+            "sid": 195,
+            "location": 2,
+            "content": "后场龙滑板斜线里回搓",
+            "music": 0,
+            "idx": 194
+        },
+        {
+            "from": 623.999,
+            "to": 631.749,
+            "sid": 196,
+            "location": 2,
+            "content": "抓推上网跟进龙回放里回搓侧身突击得分",
+            "music": 0,
+            "idx": 195
+        },
+        {
+            "from": 634.109,
+            "to": 637.36,
+            "sid": 197,
+            "location": 2,
+            "content": "His hitting absolutely",
+            "music": 0,
+            "idx": 196
+        },
+        {
+            "from": 637.36,
+            "to": 639.14,
+            "sid": 198,
+            "location": 2,
+            "content": "He needs to be fast on the shuttle here",
+            "music": 0,
+            "idx": 197
+        },
+        {
+            "from": 639.14,
+            "to": 640.32,
+            "sid": 199,
+            "location": 2,
+            "content": "We see on the front court",
+            "music": 0,
+            "idx": 198
+        },
+        {
+            "from": 640.32,
+            "to": 641.29,
+            "sid": 200,
+            "location": 2,
+            "content": "He's in early",
+            "music": 0,
+            "idx": 199
+        },
+        {
+            "from": 641.29,
+            "to": 645.05,
+            "sid": 201,
+            "location": 2,
+            "content": "一比三龙控正手里劈掉斜线龙",
+            "music": 0,
+            "idx": 200
+        },
+        {
+            "from": 645.05,
+            "to": 646.49,
+            "sid": 202,
+            "location": 2,
+            "content": "回放抽压",
+            "music": 0,
+            "idx": 201
+        },
+        {
+            "from": 647.49,
+            "to": 648.41,
+            "sid": 203,
+            "location": 2,
+            "content": "往前跟进",
+            "music": 0,
+            "idx": 202
+        },
+        {
+            "from": 648.41,
+            "to": 652.21,
+            "sid": 204,
+            "location": 2,
+            "content": "李推挑正手龙下压推头顶",
+            "music": 0,
+            "idx": 203
+        },
+        {
+            "from": 652.21,
+            "to": 653.79,
+            "sid": 205,
+            "location": 2,
+            "content": "李平高压正手龙",
+            "music": 0,
+            "idx": 204
+        },
+        {
+            "from": 653.79,
+            "to": 654.83,
+            "sid": 206,
+            "location": 2,
+            "content": "斜线过渡里网",
+            "music": 0,
+            "idx": 205
+        },
+        {
+            "from": 654.83,
+            "to": 658.95,
+            "sid": 207,
+            "location": 2,
+            "content": "前分斜线龙推挑过顶里过度龙挡原网",
+            "music": 0,
+            "idx": 206
+        },
+        {
+            "from": 658.95,
+            "to": 665.29,
+            "sid": 208,
+            "location": 2,
+            "content": "回搓逼起球下压抓摆脱杀上网连贯得分",
+            "music": 0,
+            "idx": 207
+        },
+        {
+            "from": 668.78,
+            "to": 669.52,
+            "sid": 209,
+            "location": 2,
+            "content": "Again",
+            "music": 0,
+            "idx": 208
+        },
+        {
+            "from": 669.52,
+            "to": 672.22,
+            "sid": 210,
+            "location": 2,
+            "content": "This ready to not a little more aggressive",
+            "music": 0,
+            "idx": 209
+        },
+        {
+            "from": 672.22,
+            "to": 673.54,
+            "sid": 211,
+            "location": 2,
+            "content": "Almost not again",
+            "music": 0,
+            "idx": 210
+        },
+        {
+            "from": 673.54,
+            "to": 676.99,
+            "sid": 212,
+            "location": 2,
+            "content": "Allowing lechon way to dictate too much",
+            "music": 0.1785714221938807,
+            "idx": 211
+        },
+        {
+            "from": 676.99,
+            "to": 684.11,
+            "sid": 213,
+            "location": 2,
+            "content": "and then it5比一龙抓推理",
+            "music": 0.11529933225500573,
+            "idx": 212
+        },
+        {
+            "from": 684.11,
+            "to": 687.81,
+            "sid": 214,
+            "location": 2,
+            "content": "防反龙接杀挡远网",
+            "music": 0,
+            "idx": 213
+        },
+        {
+            "from": 687.81,
+            "to": 690.54,
+            "sid": 215,
+            "location": 2,
+            "content": "侧身突击一拍上网",
+            "music": 0,
+            "idx": 214
+        },
+        {
+            "from": 690.54,
+            "to": 692.82,
+            "sid": 216,
+            "location": 2,
+            "content": "高质量抢搓得分",
+            "music": 0,
+            "idx": 215
+        },
+        {
+            "from": 697.079,
+            "to": 699.479,
+            "sid": 217,
+            "location": 2,
+            "content": "Six this one",
+            "music": 0,
+            "idx": 216
+        },
+        {
+            "from": 700.6,
+            "to": 705.24,
+            "sid": 218,
+            "location": 2,
+            "content": "That is just perfect",
+            "music": 0,
+            "idx": 217
+        },
+        {
+            "from": 705.979,
+            "to": 712.2,
+            "sid": 219,
+            "location": 2,
+            "content": "二比六理发后场龙推挑头顶李下压往前钓鱼",
+            "music": 0,
+            "idx": 218
+        },
+        {
+            "from": 712.2,
+            "to": 714.66,
+            "sid": 220,
+            "location": 2,
+            "content": "龙推挑过顶李过渡",
+            "music": 0,
+            "idx": 219
+        },
+        {
+            "from": 714.66,
+            "to": 716.68,
+            "sid": 221,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 220
+        },
+        {
+            "from": 717.18,
+            "to": 719.98,
+            "sid": 222,
+            "location": 2,
+            "content": "下压抓摆脱",
+            "music": 0,
+            "idx": 221
+        },
+        {
+            "from": 719.98,
+            "to": 721.22,
+            "sid": 223,
+            "location": 2,
+            "content": "往前扑压得分",
+            "music": 0,
+            "idx": 222
+        },
+        {
+            "from": 723.94,
+            "to": 725.47,
+            "sid": 224,
+            "location": 2,
+            "content": "He strikes",
+            "music": 0,
+            "idx": 223
+        },
+        {
+            "from": 728.15,
+            "to": 732.05,
+            "sid": 225,
+            "location": 2,
+            "content": "七比二龙抽鸭放网",
+            "music": 0,
+            "idx": 224
+        },
+        {
+            "from": 732.05,
+            "to": 736.27,
+            "sid": 226,
+            "location": 2,
+            "content": "李回搓头顶突击直线得分",
+            "music": 0,
+            "idx": 225
+        },
+        {
+            "from": 736.27,
+            "to": 739.19,
+            "sid": 227,
+            "location": 2,
+            "content": "That accuracy and variation",
+            "music": 0,
+            "idx": 226
+        },
+        {
+            "from": 739.19,
+            "to": 741.79,
+            "sid": 228,
+            "location": 2,
+            "content": "And he he needs to get these opportunities",
+            "music": 0,
+            "idx": 227
+        },
+        {
+            "from": 741.79,
+            "to": 744.38,
+            "sid": 229,
+            "location": 2,
+            "content": "Where he gets a shorter lift cut",
+            "music": 0,
+            "idx": 228
+        },
+        {
+            "from": 744.38,
+            "to": 744.98,
+            "sid": 230,
+            "location": 2,
+            "content": "How to get it",
+            "music": 0,
+            "idx": 229
+        },
+        {
+            "from": 744.98,
+            "to": 745.38,
+            "sid": 231,
+            "location": 2,
+            "content": "Right now",
+            "music": 0,
+            "idx": 230
+        },
+        {
+            "from": 745.38,
+            "to": 746.94,
+            "sid": 232,
+            "location": 2,
+            "content": "and chang10比四",
+            "music": 0,
+            "idx": 231
+        },
+        {
+            "from": 746.94,
+            "to": 751.18,
+            "sid": 233,
+            "location": 2,
+            "content": "but it's just李放网龙推挑正手里过度",
+            "music": 0,
+            "idx": 232
+        },
+        {
+            "from": 751.18,
+            "to": 752.42,
+            "sid": 234,
+            "location": 2,
+            "content": "后场抓过度",
+            "music": 0,
+            "idx": 233
+        },
+        {
+            "from": 752.42,
+            "to": 754.66,
+            "sid": 235,
+            "location": 2,
+            "content": "头顶杀斜线得分",
+            "music": 0,
+            "idx": 234
+        },
+        {
+            "from": 754.7,
+            "to": 756.06,
+            "sid": 236,
+            "location": 2,
+            "content": "Unforced mistakes today",
+            "music": 0,
+            "idx": 235
+        },
+        {
+            "from": 756.06,
+            "to": 760.24,
+            "sid": 237,
+            "location": 2,
+            "content": "You see that is trade mark shot on five ten",
+            "music": 0,
+            "idx": 236
+        },
+        {
+            "from": 760.68,
+            "to": 763.56,
+            "sid": 238,
+            "location": 2,
+            "content": "八比12龙推正手李过渡",
+            "music": 0,
+            "idx": 237
+        },
+        {
+            "from": 764.56,
+            "to": 767.58,
+            "sid": 239,
+            "location": 2,
+            "content": "放网里抓推龙挡网",
+            "music": 0,
+            "idx": 238
+        },
+        {
+            "from": 767.58,
+            "to": 769.46,
+            "sid": 240,
+            "location": 2,
+            "content": "摆脱头顶突击一拍",
+            "music": 0,
+            "idx": 239
+        },
+        {
+            "from": 769.46,
+            "to": 770.5,
+            "sid": 241,
+            "location": 2,
+            "content": "李接杀分",
+            "music": 0,
+            "idx": 240
+        },
+        {
+            "from": 770.5,
+            "to": 775.42,
+            "sid": 242,
+            "location": 2,
+            "content": "对角抓推拦截李高质量往前分斜线抓扑得分",
+            "music": 0,
+            "idx": 241
+        },
+        {
+            "from": 776.06,
+            "to": 779.26,
+            "sid": 243,
+            "location": 2,
+            "content": "九比12龙放网里推正手龙",
+            "music": 0,
+            "idx": 242
+        },
+        {
+            "from": 779.26,
+            "to": 781.22,
+            "sid": 244,
+            "location": 2,
+            "content": "抽压双方圆网",
+            "music": 0,
+            "idx": 243
+        },
+        {
+            "from": 781.22,
+            "to": 785.13,
+            "sid": 245,
+            "location": 2,
+            "content": "控制李推头顶龙下压离反顶",
+            "music": 0,
+            "idx": 244
+        },
+        {
+            "from": 785.13,
+            "to": 786.77,
+            "sid": 246,
+            "location": 2,
+            "content": "破坏连贯挡",
+            "music": 0,
+            "idx": 245
+        },
+        {
+            "from": 786.77,
+            "to": 789.76,
+            "sid": 247,
+            "location": 2,
+            "content": "放网头顶突击一拍",
+            "music": 0,
+            "idx": 246
+        },
+        {
+            "from": 789.76,
+            "to": 791.92,
+            "sid": 248,
+            "location": 2,
+            "content": "龙接杀挡远网离网前分对角",
+            "music": 0,
+            "idx": 247
+        },
+        {
+            "from": 791.92,
+            "to": 793.82,
+            "sid": 249,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 248
+        },
+        {
+            "from": 795.21,
+            "to": 800.17,
+            "sid": 250,
+            "location": 2,
+            "content": "李平高空转身龙抓推突击得分",
+            "music": 0,
+            "idx": 249
+        },
+        {
+            "from": 800.38,
+            "to": 801.42,
+            "sid": 251,
+            "location": 2,
+            "content": "Net pts",
+            "music": 0,
+            "idx": 250
+        },
+        {
+            "from": 801.42,
+            "to": 803.62,
+            "sid": 252,
+            "location": 2,
+            "content": "We are perfect place man attack",
+            "music": 0,
+            "idx": 251
+        },
+        {
+            "from": 803.62,
+            "to": 806.82,
+            "sid": 253,
+            "location": 2,
+            "content": "And that is also very very powerful that",
+            "music": 0,
+            "idx": 252
+        },
+        {
+            "from": 806.82,
+            "to": 807.9,
+            "sid": 254,
+            "location": 2,
+            "content": "He's able to jump",
+            "music": 0,
+            "idx": 253
+        },
+        {
+            "from": 807.9,
+            "to": 810.61,
+            "sid": 255,
+            "location": 2,
+            "content": "Directly on each chy weis lift",
+            "music": 0,
+            "idx": 254
+        },
+        {
+            "from": 811.69,
+            "to": 813.92,
+            "sid": 256,
+            "location": 2,
+            "content": "And it's not a bad lift",
+            "music": 0,
+            "idx": 255
+        },
+        {
+            "from": 817.68,
+            "to": 818.92,
+            "sid": 257,
+            "location": 2,
+            "content": "13比九",
+            "music": 0,
+            "idx": 256
+        },
+        {
+            "from": 818.92,
+            "to": 821.079,
+            "sid": 258,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 257
+        },
+        {
+            "from": 821.319,
+            "to": 822.319,
+            "sid": 259,
+            "location": 2,
+            "content": "龙头顶突击",
+            "music": 0,
+            "idx": 258
+        },
+        {
+            "from": 822.319,
+            "to": 823.839,
+            "sid": 260,
+            "location": 2,
+            "content": "一拍往前逼压",
+            "music": 0,
+            "idx": 259
+        },
+        {
+            "from": 823.839,
+            "to": 824.919,
+            "sid": 261,
+            "location": 2,
+            "content": "双方抽挡较量",
+            "music": 0,
+            "idx": 260
+        },
+        {
+            "from": 824.919,
+            "to": 827.91,
+            "sid": 262,
+            "location": 2,
+            "content": "龙挡圆网滑板斜线",
+            "music": 0,
+            "idx": 261
+        },
+        {
+            "from": 827.91,
+            "to": 830.13,
+            "sid": 263,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 262
+        },
+        {
+            "from": 831.17,
+            "to": 835.53,
+            "sid": 264,
+            "location": 2,
+            "content": "下压李回放龙回搓里高质量推挑",
+            "music": 0,
+            "idx": 263
+        },
+        {
+            "from": 835.53,
+            "to": 837.339,
+            "sid": 265,
+            "location": 2,
+            "content": "使龙判断失误",
+            "music": 0,
+            "idx": 264
+        },
+        {
+            "from": 837.619,
+            "to": 840.059,
+            "sid": 266,
+            "location": 2,
+            "content": "Oh thanks like",
+            "music": 0,
+            "idx": 265
+        },
+        {
+            "from": 840.059,
+            "to": 841.28,
+            "sid": 267,
+            "location": 2,
+            "content": "But exactly",
+            "music": 0,
+            "idx": 266
+        },
+        {
+            "from": 841.28,
+            "to": 846,
+            "sid": 268,
+            "location": 2,
+            "content": "陈龙11比13龙推正手李抽鸭",
+            "music": 0,
+            "idx": 267
+        },
+        {
+            "from": 846,
+            "to": 850.79,
+            "sid": 269,
+            "location": 2,
+            "content": "李推正手龙抽压龙放网李推扑龙高质量弹",
+            "music": 0,
+            "idx": 268
+        },
+        {
+            "from": 850.79,
+            "to": 853.46,
+            "sid": 270,
+            "location": 2,
+            "content": "后场十里判断失误哎",
+            "music": 0,
+            "idx": 269
+        },
+        {
+            "from": 858.96,
+            "to": 864.669,
+            "sid": 271,
+            "location": 2,
+            "content": "12比14理发后场李抓推上网跟进",
+            "music": 0,
+            "idx": 270
+        },
+        {
+            "from": 864.669,
+            "to": 867.769,
+            "sid": 272,
+            "location": 2,
+            "content": "龙推挑过顶往前逼压",
+            "music": 0,
+            "idx": 271
+        },
+        {
+            "from": 867.769,
+            "to": 868.97,
+            "sid": 273,
+            "location": 2,
+            "content": "龙回放",
+            "music": 0,
+            "idx": 272
+        },
+        {
+            "from": 868.97,
+            "to": 869.89,
+            "sid": 274,
+            "location": 2,
+            "content": "侧身突击",
+            "music": 0,
+            "idx": 273
+        },
+        {
+            "from": 869.89,
+            "to": 871.33,
+            "sid": 275,
+            "location": 2,
+            "content": "一拍里接杀分",
+            "music": 0,
+            "idx": 274
+        },
+        {
+            "from": 871.33,
+            "to": 873.33,
+            "sid": 276,
+            "location": 2,
+            "content": "斜线龙推挑头顶里滑板",
+            "music": 0,
+            "idx": 275
+        },
+        {
+            "from": 873.33,
+            "to": 879.089,
+            "sid": 277,
+            "location": 2,
+            "content": "斜线龙回放里回搓杀上网连贯得分",
+            "music": 0,
+            "idx": 276
+        },
+        {
+            "from": 879.75,
+            "to": 883.25,
+            "sid": 278,
+            "location": 2,
+            "content": "Oh from this is really mixing up",
+            "music": 0,
+            "idx": 277
+        },
+        {
+            "from": 883.25,
+            "to": 885.23,
+            "sid": 279,
+            "location": 2,
+            "content": "And that is speed",
+            "music": 0,
+            "idx": 278
+        },
+        {
+            "from": 885.23,
+            "to": 888.1,
+            "sid": 280,
+            "location": 2,
+            "content": "And is a uncommitment to the shop",
+            "music": 0,
+            "idx": 279
+        },
+        {
+            "from": 888.78,
+            "to": 890.78,
+            "sid": 281,
+            "location": 2,
+            "content": "Any other side of that",
+            "music": 0,
+            "idx": 280
+        },
+        {
+            "from": 891.74,
+            "to": 896.42,
+            "sid": 282,
+            "location": 2,
+            "content": "13比14里头顶突击斜线得分",
+            "music": 0,
+            "idx": 281
+        },
+        {
+            "from": 903.3,
+            "to": 904.74,
+            "sid": 283,
+            "location": 2,
+            "content": "15比14比",
+            "music": 0,
+            "idx": 282
+        },
+        {
+            "from": 904.74,
+            "to": 906.34,
+            "sid": 284,
+            "location": 2,
+            "content": "头顶突击斜线龙",
+            "music": 0,
+            "idx": 283
+        },
+        {
+            "from": 906.34,
+            "to": 907.5,
+            "sid": 285,
+            "location": 2,
+            "content": "防反",
+            "music": 0,
+            "idx": 284
+        },
+        {
+            "from": 909.1,
+            "to": 909.98,
+            "sid": 286,
+            "location": 2,
+            "content": "上网跟进",
+            "music": 0,
+            "idx": 285
+        },
+        {
+            "from": 911.22,
+            "to": 912.2,
+            "sid": 287,
+            "location": 2,
+            "content": "头顶突击一拍",
+            "music": 0,
+            "idx": 286
+        },
+        {
+            "from": 912.2,
+            "to": 913.92,
+            "sid": 288,
+            "location": 2,
+            "content": "李接杀分斜线龙回放",
+            "music": 0,
+            "idx": 287
+        },
+        {
+            "from": 913.92,
+            "to": 916.62,
+            "sid": 289,
+            "location": 2,
+            "content": "李推挑过顶龙过度离网",
+            "music": 0,
+            "idx": 288
+        },
+        {
+            "from": 916.62,
+            "to": 918.08,
+            "sid": 290,
+            "location": 2,
+            "content": "前分斜线龙回放",
+            "music": 0,
+            "idx": 289
+        },
+        {
+            "from": 919.62,
+            "to": 921.68,
+            "sid": 291,
+            "location": 2,
+            "content": "下压往前跟进",
+            "music": 0,
+            "idx": 290
+        },
+        {
+            "from": 921.68,
+            "to": 925.19,
+            "sid": 292,
+            "location": 2,
+            "content": "离反控正手龙斜线过渡抓推",
+            "music": 0,
+            "idx": 291
+        },
+        {
+            "from": 925.67,
+            "to": 929.3,
+            "sid": 293,
+            "location": 2,
+            "content": "上网跟进龙过度离反控",
+            "music": 0,
+            "idx": 292
+        },
+        {
+            "from": 929.3,
+            "to": 933.9,
+            "sid": 294,
+            "location": 2,
+            "content": "正手龙抓推往前分斜线",
+            "music": 0,
+            "idx": 293
+        },
+        {
+            "from": 935.3,
+            "to": 936.879,
+            "sid": 295,
+            "location": 2,
+            "content": "头顶突击得分",
+            "music": 0,
+            "idx": 294
+        },
+        {
+            "from": 937.25,
+            "to": 939.76,
+            "sid": 296,
+            "location": 2,
+            "content": "What's so running",
+            "music": 0,
+            "idx": 295
+        },
+        {
+            "from": 947.34,
+            "to": 948.36,
+            "sid": 297,
+            "location": 2,
+            "content": "Unbelievable",
+            "music": 0,
+            "idx": 296
+        },
+        {
+            "from": 948.36,
+            "to": 949.28,
+            "sid": 298,
+            "location": 2,
+            "content": "But again",
+            "music": 0,
+            "idx": 297
+        },
+        {
+            "from": 949.28,
+            "to": 950.18,
+            "sid": 299,
+            "location": 2,
+            "content": "I like the fact",
+            "music": 0,
+            "idx": 298
+        },
+        {
+            "from": 950.18,
+            "to": 953.34,
+            "sid": 300,
+            "location": 2,
+            "content": "We seem to way now trademark defends",
+            "music": 0,
+            "idx": 299
+        },
+        {
+            "from": 953.34,
+            "to": 955.54,
+            "sid": 301,
+            "location": 2,
+            "content": "But also the deceptive sho",
+            "music": 0,
+            "idx": 300
+        },
+        {
+            "from": 956.34,
+            "to": 957.82,
+            "sid": 302,
+            "location": 2,
+            "content": "16比15龙",
+            "music": 0,
+            "idx": 301
+        },
+        {
+            "from": 957.82,
+            "to": 959.82,
+            "sid": 303,
+            "location": 2,
+            "content": "推挑正手里斜线过渡",
+            "music": 0,
+            "idx": 302
+        },
+        {
+            "from": 959.82,
+            "to": 963.3,
+            "sid": 304,
+            "location": 2,
+            "content": "龙回放里反控正手龙过度往前逼",
+            "music": 0,
+            "idx": 303
+        },
+        {
+            "from": 963.3,
+            "to": 970.869,
+            "sid": 305,
+            "location": 2,
+            "content": "压挡圆网里推挑头顶抓过度下压空王抢功",
+            "music": 0,
+            "idx": 304
+        },
+        {
+            "from": 972.62,
+            "to": 975.94,
+            "sid": 306,
+            "location": 2,
+            "content": "龙挡网摆脱滑板斜线",
+            "music": 0,
+            "idx": 305
+        },
+        {
+            "from": 975.94,
+            "to": 977.94,
+            "sid": 307,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 306
+        },
+        {
+            "from": 978.43,
+            "to": 979.25,
+            "sid": 308,
+            "location": 2,
+            "content": "龙回搓",
+            "music": 0,
+            "idx": 307
+        },
+        {
+            "from": 979.25,
+            "to": 982.74,
+            "sid": 309,
+            "location": 2,
+            "content": "高质量起跳杀球得分",
+            "music": 0,
+            "idx": 308
+        },
+        {
+            "from": 983.26,
+            "to": 986.02,
+            "sid": 310,
+            "location": 2,
+            "content": "Force the shorter lift in the end",
+            "music": 0,
+            "idx": 309
+        },
+        {
+            "from": 988.29,
+            "to": 990.95,
+            "sid": 311,
+            "location": 2,
+            "content": "Look at the power",
+            "music": 0,
+            "idx": 310
+        },
+        {
+            "from": 990.95,
+            "to": 993.7,
+            "sid": 312,
+            "location": 2,
+            "content": "He generates",
+            "music": 0,
+            "idx": 311
+        },
+        {
+            "from": 995.84,
+            "to": 998.58,
+            "sid": 313,
+            "location": 2,
+            "content": "17比16里推正手龙抽压",
+            "music": 0,
+            "idx": 312
+        },
+        {
+            "from": 998.58,
+            "to": 1000.72,
+            "sid": 314,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 313
+        },
+        {
+            "from": 1001.44,
+            "to": 1002.64,
+            "sid": 315,
+            "location": 2,
+            "content": "里劈吊打重心",
+            "music": 0,
+            "idx": 314
+        },
+        {
+            "from": 1002.64,
+            "to": 1004.08,
+            "sid": 316,
+            "location": 2,
+            "content": "调动上网高点",
+            "music": 0,
+            "idx": 315
+        },
+        {
+            "from": 1004.08,
+            "to": 1005.76,
+            "sid": 317,
+            "location": 2,
+            "content": "分对角头顶突击",
+            "music": 0,
+            "idx": 316
+        },
+        {
+            "from": 1005.76,
+            "to": 1009.579,
+            "sid": 318,
+            "location": 2,
+            "content": "一拍推头顶龙下压",
+            "music": 0,
+            "idx": 317
+        },
+        {
+            "from": 1009.579,
+            "to": 1011.019,
+            "sid": 319,
+            "location": 2,
+            "content": "双方网前较量",
+            "music": 0,
+            "idx": 318
+        },
+        {
+            "from": 1012.259,
+            "to": 1014.059,
+            "sid": 320,
+            "location": 2,
+            "content": "李控网抢攻",
+            "music": 0,
+            "idx": 319
+        },
+        {
+            "from": 1015.48,
+            "to": 1016.36,
+            "sid": 321,
+            "location": 2,
+            "content": "上网快推",
+            "music": 0,
+            "idx": 320
+        },
+        {
+            "from": 1016.36,
+            "to": 1017.76,
+            "sid": 322,
+            "location": 2,
+            "content": "转身抓过渡",
+            "music": 0,
+            "idx": 321
+        },
+        {
+            "from": 1017.76,
+            "to": 1019.69,
+            "sid": 323,
+            "location": 2,
+            "content": "斜线突击得分",
+            "music": 0,
+            "idx": 322
+        },
+        {
+            "from": 1020.21,
+            "to": 1022.53,
+            "sid": 324,
+            "location": 2,
+            "content": "But simply couldn't believe",
+            "music": 0,
+            "idx": 323
+        },
+        {
+            "from": 1023.69,
+            "to": 1025.21,
+            "sid": 325,
+            "location": 2,
+            "content": "He kept getting the shuttle",
+            "music": 0,
+            "idx": 324
+        },
+        {
+            "from": 1025.21,
+            "to": 1028.579,
+            "sid": 326,
+            "location": 2,
+            "content": "But that is extraordinary",
+            "music": 0,
+            "idx": 325
+        },
+        {
+            "from": 1033.58,
+            "to": 1037.94,
+            "sid": 327,
+            "location": 2,
+            "content": "17平龙推正手里抽压推头顶",
+            "music": 0,
+            "idx": 326
+        },
+        {
+            "from": 1037.94,
+            "to": 1042.05,
+            "sid": 328,
+            "location": 2,
+            "content": "龙下压上网跟进机会不好",
+            "music": 0,
+            "idx": 327
+        },
+        {
+            "from": 1042.05,
+            "to": 1043.31,
+            "sid": 329,
+            "location": 2,
+            "content": "龙选择过度",
+            "music": 0,
+            "idx": 328
+        },
+        {
+            "from": 1043.31,
+            "to": 1045.47,
+            "sid": 330,
+            "location": 2,
+            "content": "龙往前连续扑压抓",
+            "music": 0,
+            "idx": 329
+        },
+        {
+            "from": 1045.47,
+            "to": 1047.46,
+            "sid": 331,
+            "location": 2,
+            "content": "摆脱头顶突击得分",
+            "music": 0,
+            "idx": 330
+        },
+        {
+            "from": 1047.46,
+            "to": 1052.06,
+            "sid": 332,
+            "location": 2,
+            "content": "One please playing it further into court and very aggressive",
+            "music": 0,
+            "idx": 331
+        },
+        {
+            "from": 1052.06,
+            "to": 1053.57,
+            "sid": 333,
+            "location": 2,
+            "content": "Mid court in front court",
+            "music": 0,
+            "idx": 332
+        },
+        {
+            "from": 1058.25,
+            "to": 1059.55,
+            "sid": 334,
+            "location": 2,
+            "content": "18比17",
+            "music": 0,
+            "idx": 333
+        },
+        {
+            "from": 1059.55,
+            "to": 1061.41,
+            "sid": 335,
+            "location": 2,
+            "content": "李控网抢攻",
+            "music": 0,
+            "idx": 334
+        },
+        {
+            "from": 1062.8,
+            "to": 1063.98,
+            "sid": 336,
+            "location": 2,
+            "content": "上网跟进",
+            "music": 0,
+            "idx": 335
+        },
+        {
+            "from": 1063.98,
+            "to": 1064.84,
+            "sid": 337,
+            "location": 2,
+            "content": "龙快推",
+            "music": 0,
+            "idx": 336
+        },
+        {
+            "from": 1064.84,
+            "to": 1067.01,
+            "sid": 338,
+            "location": 2,
+            "content": "正手抓过度进攻",
+            "music": 0,
+            "idx": 337
+        },
+        {
+            "from": 1067.01,
+            "to": 1068.45,
+            "sid": 339,
+            "location": 2,
+            "content": "李接杀分斜线",
+            "music": 0,
+            "idx": 338
+        },
+        {
+            "from": 1069.57,
+            "to": 1070.25,
+            "sid": 340,
+            "location": 2,
+            "content": "李过渡",
+            "music": 0,
+            "idx": 339
+        },
+        {
+            "from": 1070.25,
+            "to": 1073.89,
+            "sid": 341,
+            "location": 2,
+            "content": "龙放网里高质量回放得手",
+            "music": 0,
+            "idx": 340
+        },
+        {
+            "from": 1080.24,
+            "to": 1083.34,
+            "sid": 342,
+            "location": 2,
+            "content": "18平龙网前分斜线",
+            "music": 0,
+            "idx": 341
+        },
+        {
+            "from": 1083.34,
+            "to": 1085.96,
+            "sid": 343,
+            "location": 2,
+            "content": "头顶突击一拍上网逼压抓",
+            "music": 0,
+            "idx": 342
+        },
+        {
+            "from": 1085.96,
+            "to": 1088.24,
+            "sid": 344,
+            "location": 2,
+            "content": "摆脱头顶突击斜线得分",
+            "music": 0,
+            "idx": 343
+        },
+        {
+            "from": 1088.24,
+            "to": 1088.8,
+            "sid": 345,
+            "location": 2,
+            "content": "Well",
+            "music": 0,
+            "idx": 344
+        },
+        {
+            "from": 1088.8,
+            "to": 1090.78,
+            "sid": 346,
+            "location": 2,
+            "content": "I almost seem to lose his footing",
+            "music": 0,
+            "idx": 345
+        },
+        {
+            "from": 1090.78,
+            "to": 1091.88,
+            "sid": 347,
+            "location": 2,
+            "content": "Almost seem to hot",
+            "music": 0,
+            "idx": 346
+        },
+        {
+            "from": 1091.88,
+            "to": 1095.29,
+            "sid": 348,
+            "location": 2,
+            "content": "As he moved back to hit that smash chroll",
+            "music": 0,
+            "idx": 347
+        },
+        {
+            "from": 1095.29,
+            "to": 1098.79,
+            "sid": 349,
+            "location": 2,
+            "content": "I think that was what caught me to win of god",
+            "music": 0,
+            "idx": 348
+        },
+        {
+            "from": 1098.79,
+            "to": 1101.18,
+            "sid": 350,
+            "location": 2,
+            "content": "You know who was thinking no",
+            "music": 0,
+            "idx": 349
+        },
+        {
+            "from": 1106.62,
+            "to": 1109.56,
+            "sid": 351,
+            "location": 2,
+            "content": "19比18里分球下压",
+            "music": 0,
+            "idx": 350
+        },
+        {
+            "from": 1111.24,
+            "to": 1112.16,
+            "sid": 352,
+            "location": 2,
+            "content": "龙放网",
+            "music": 0,
+            "idx": 351
+        },
+        {
+            "from": 1112.16,
+            "to": 1120.89,
+            "sid": 353,
+            "location": 2,
+            "content": "李回搓下压推头顶龙滑板斜线里抓推龙挡网",
+            "music": 0,
+            "idx": 352
+        },
+        {
+            "from": 1120.89,
+            "to": 1125.01,
+            "sid": 354,
+            "location": 2,
+            "content": "摆脱理推正手龙抽压挡原网",
+            "music": 0,
+            "idx": 353
+        },
+        {
+            "from": 1125.01,
+            "to": 1130.25,
+            "sid": 355,
+            "location": 2,
+            "content": "头顶突击直线上网推扑抓摆脱杀上网连贯得分",
+            "music": 0,
+            "idx": 354
+        },
+        {
+            "from": 1132.17,
+            "to": 1136.56,
+            "sid": 356,
+            "location": 2,
+            "content": "I think you call me to the left this one almost certainly",
+            "music": 0,
+            "idx": 355
+        },
+        {
+            "from": 1137.56,
+            "to": 1139.32,
+            "sid": 357,
+            "location": 2,
+            "content": "But no",
+            "music": 0,
+            "idx": 356
+        },
+        {
+            "from": 1140.36,
+            "to": 1145.31,
+            "sid": 358,
+            "location": 2,
+            "content": "20比18里推正手龙抽压龙推挑正手里过渡",
+            "music": 0,
+            "idx": 357
+        },
+        {
+            "from": 1145.31,
+            "to": 1149.51,
+            "sid": 359,
+            "location": 2,
+            "content": "后场龙抽压龙控正手里抽压",
+            "music": 0,
+            "idx": 358
+        },
+        {
+            "from": 1149.51,
+            "to": 1153.83,
+            "sid": 360,
+            "location": 2,
+            "content": "高点抢放下压往前分",
+            "music": 0,
+            "idx": 359
+        },
+        {
+            "from": 1153.83,
+            "to": 1155.31,
+            "sid": 361,
+            "location": 2,
+            "content": "斜线龙回放",
+            "music": 0,
+            "idx": 360
+        },
+        {
+            "from": 1155.31,
+            "to": 1157.67,
+            "sid": 362,
+            "location": 2,
+            "content": "头顶突击一拍上网",
+            "music": 0,
+            "idx": 361
+        },
+        {
+            "from": 1157.67,
+            "to": 1159.93,
+            "sid": 363,
+            "location": 2,
+            "content": "连续逼压终结比赛",
+            "music": 0,
+            "idx": 362
+        },
+        {
+            "from": 1160.37,
+            "to": 1164.17,
+            "sid": 364,
+            "location": 2,
+            "content": "成龙以大比分二比零战胜马来西亚选手李宗伟",
+            "music": 0,
+            "idx": 363
+        },
+        {
+            "from": 1164.17,
+            "to": 1168.53,
+            "sid": 365,
+            "location": 2,
+            "content": "赢得了个人职业生涯的首个全英公开赛冠军",
+            "music": 0,
+            "idx": 364
+        },
+        {
+            "from": 1169.41,
+            "to": 1172.51,
+            "sid": 366,
+            "location": 2,
+            "content": "Oh embraces",
+            "music": 0,
+            "idx": 365
+        },
+        {
+            "from": 1172.51,
+            "to": 1174.22,
+            "sid": 367,
+            "location": 2,
+            "content": "His coach",
+            "music": 0,
+            "idx": 366
+        },
+        {
+            "from": 1174.86,
+            "to": 1176.9,
+            "sid": 368,
+            "location": 2,
+            "content": "Charles one j",
+            "music": 0,
+            "idx": 367
+        },
+        {
+            "from": 1180.06,
+            "to": 1186.12,
+            "sid": 369,
+            "location": 2,
+            "content": "And lee chong wei forever the fighter on courts",
+            "music": 0,
+            "idx": 368
+        },
+        {
+            "from": 1188.76,
+            "to": 1190.64,
+            "sid": 370,
+            "location": 2,
+            "content": "Just didn't have enough today",
+            "music": 0,
+            "idx": 369
+        },
+        {
+            "from": 1192.28,
+            "to": 1193.04,
+            "sid": 371,
+            "location": 2,
+            "content": "Against china",
+            "music": 0,
+            "idx": 370
+        },
+        {
+            "from": 1193.04,
+            "to": 1196.27,
+            "sid": 372,
+            "location": 2,
+            "content": "All throughout the right moments",
+            "music": 0,
+            "idx": 371
+        },
+        {
+            "from": 1197.95,
+            "to": 1199.03,
+            "sid": 373,
+            "location": 2,
+            "content": "Played the aggression",
+            "music": 0,
+            "idx": 372
+        },
+        {
+            "from": 1199.03,
+            "to": 1199.91,
+            "sid": 374,
+            "location": 2,
+            "content": "Leech on ray",
+            "music": 0,
+            "idx": 373
+        },
+        {
+            "from": 1199.91,
+            "to": 1200.86,
+            "sid": 375,
+            "location": 2,
+            "content": "Who struggle",
+            "music": 0,
+            "idx": 374
+        },
+        {
+            "from": 1200.86,
+            "to": 1204.06,
+            "sid": 376,
+            "location": 2,
+            "content": "The weekend on the thing to produce his very best",
+            "music": 0,
+            "idx": 375
+        },
+        {
+            "from": 1205.26,
+            "to": 1207.44,
+            "sid": 377,
+            "location": 2,
+            "content": "But just spite not being with his best",
+            "music": 0,
+            "idx": 376
+        },
+        {
+            "from": 1207.44,
+            "to": 1212.25,
+            "sid": 378,
+            "location": 2,
+            "content": "Still produced a great final today",
+            "music": 0,
+            "idx": 377
+        },
+        {
+            "from": 1222,
+            "to": 1227.55,
+            "sid": 379,
+            "location": 2,
+            "content": "His first ever all england final je one conquers",
+            "music": 0,
+            "idx": 378
+        },
+        {
+            "from": 1227.55,
+            "to": 1234.49,
+            "sid": 380,
+            "location": 2,
+            "content": "The man is being here on finals day for the last five years",
+            "music": 0,
+            "idx": 379
+        },
+        {
+            "from": 1243.06,
+            "to": 1246.58,
+            "sid": 381,
+            "location": 2,
+            "content": "Well i know lee chong wei will be very disappointed",
+            "music": 0,
+            "idx": 380
+        }
+    ]
+}
