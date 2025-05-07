@@ -135,17 +135,31 @@ def visualize_match_data(match_segment):
     plt.rcParams['axes.unicode_minus'] = False  # 解决负号 '-' 显示为方块的问题
 
     # 创建画布：3行1列，高度增加一点
-    fig, (ax1, ax2, ax3,ax4) = plt.subplots(4, 1, figsize=(10, 20),gridspec_kw={'height_ratios': [1, 1, 1.5, 1]})
+    fig, axes = plt.subplots(2, 2, figsize=(15, 10), gridspec_kw={'height_ratios': [1, 1]})
     plt.subplots_adjust(hspace=0.6)  # 增加子图间距
-
+    ax1, ax2, ax3, ax4 = axes.flatten()
+    ax1.set_xticklabels([])
+    ax1.tick_params(axis='x', which='both', bottom=False)  # 隐藏x轴的刻度线
     # 图1：击球类型分布（英文）
     sub_df['type_en'] = sub_df['type'].map(type_mapping)
     type_counts = sub_df['type_en'].value_counts()
-    ax1.bar(type_counts.index, type_counts.values, color='skyblue')
+
+    # 为每个柱状图分配一个特定的颜色
+    colors = plt.cm.get_cmap('tab20', len(type_counts)).colors
+
+    bars = ax1.bar(type_counts.index, type_counts.values, color=colors)
     ax1.set_title('Shot Type Distribution')
     ax1.tick_params(axis='x', rotation=90)
 
+    # 设置图例到最佳位置，比如右上角，并分成两列
+    ax1.legend(bars, type_counts.index, bbox_to_anchor=(1.1, 1), loc='upper right', ncol=2)
+
+    # 如果需要进一步微调图例的位置，可以调整 bbox_to_anchor 的坐标值
+    # 例如: bbox_to_anchor=(1.05, 1) 或其他适合的值
+
     # 图2：击球-落点热力图
+    # 先去除landing area>9的值：
+    sub_df = sub_df[sub_df['landing_area'] <= 9]
     hit_areas = pd.crosstab(sub_df['hit_area'], sub_df['landing_area'])
     im = ax2.imshow(hit_areas, cmap='YlGnBu')
     ax2.set_title('Hit-Landing Area Matrix')
@@ -156,7 +170,7 @@ def visualize_match_data(match_segment):
     "對手出界": "Opponent Out of Bounds",
     "對手掛網": "Opponent Netted",
     "對手未過網": "Opponent Failed to Clear the Net",
-    "落地致勝": "Winning Shot (Ball Landed)",
+    "落地致勝": "Ball Landed",
     "對手落點判斷失誤": "Opponent Misjudged Landing Spot"
     }
     # 图3：Win Reason Counts（得分原因统计）
@@ -164,13 +178,20 @@ def visualize_match_data(match_segment):
     win_reason_counts = Counter(win_reasons_en)
 
     win_reasons_list, win_counts_list = zip(*win_reason_counts.items())
-    ax3.bar(win_reasons_list, win_counts_list, color='lightgreen')
+
+    # 为每个柱状图分配一个特定的颜色
+    colors = plt.cm.get_cmap('tab10', len(win_reasons_list)).colors
+    ax3.set_xticklabels([])
+    ax3.tick_params(axis='x', which='both', bottom=False)  # 隐藏x轴的刻度线
+    ax3.bar(win_reasons_list, win_counts_list, color=colors)
     ax3.set_title('Win Reason Counts')
     ax3.set_xlabel('Win Reason')
     ax3.set_ylabel('Count')
-    ax3.tick_params(axis='x', rotation=45)
+
+    # 设置图例到最佳位置，比如右上角
+    ax3.legend(ax3.patches, win_reasons_list, bbox_to_anchor=(1.1, 1), loc='upper right')
     lose_reason_mapping = {
-    "對手落地致勝": "Opponent's Winning Shot (Ball Landed)",
+    "對手落地致勝": "Opponent's Ball Landed",
     "掛網": "Netted",
     "未過網": "Failed to Clear the Net",
     "出界": "Out of Bounds",
@@ -180,11 +201,20 @@ def visualize_match_data(match_segment):
     lose_reasons = sub_df['lose_reason'].dropna().map(lose_reason_mapping)
     lose_reason_counts = Counter(lose_reasons)
     lose_reasons_list, lose_counts_list = zip(*lose_reason_counts.items())
-    ax4.bar(lose_reasons_list, lose_counts_list, color='lightcoral')
+
+    # 为每个柱状图分配一个特定的颜色
+    colors = plt.cm.get_cmap('Paired', len(lose_reasons_list)).colors
+    # 去除底部的x轴标注
+    ax4.set_xticklabels([])
+    ax4.tick_params(axis='x', which='both', bottom=False)  # 隐藏x轴的刻度线
+    ax4.bar(lose_reasons_list, lose_counts_list, color=colors)
     ax4.set_title('Lose Reason Counts')
     ax4.set_xlabel('Lose Reason')
     ax4.set_ylabel('Count')
-    ax4.tick_params(axis='x', rotation=45)
+
+    # 设置图例到最佳位置，比如右上角
+    ax4.legend(ax4.patches, lose_reasons_list, bbox_to_anchor=(1.1, 1), loc='upper right')
+
     # 自动调整布局
     plt.tight_layout()
 
@@ -385,51 +415,45 @@ def qwen_predict(user_input, sport, player1_name, player2_name,rally_data,rally_
     player1_nickname = player_nickname_map.get(player1_name, player1_name)
     player2_nickname = player_nickname_map.get(player2_name, player2_name)  
     prompt = f"""
-        Generate a professional badminton commentary in Chinese for a {sport} match between {player1_name} (Player 1) and {player2_name} (Player 2). 
+        Generate a professional badminton commentary in Chinese for a {sport} match between {player1_nickname} (Player 1) and {player2_nickname} (Player 2). 
 
         Key requirements:
         1. Output Format:
         Return only a valid JSON array of objects with format, where hit_num is the index of the hit in the rally (1-based), and comment is the generated commentary for that hit:
         [
-        {
-            "hit_num": 2,
+        {{
+            "hit_num": 1,
             "comment": "..."
-        }
-        {
-            "hit_num": 3,
-            "comment": "..."
-        },
+        }},
         ...
         ]
         
+        2. 解说内容要求：
+        每条 comment 应当包含球员姓名({player1_nickname}和{player2_nickname})+以下要素（按顺序）：
+        1. **球员动作序列描述**（使用[击球技术类]术语）
+        2. **战术分析与判断**（使用[战术策略类]术语）
+        3. **比分更新信息**（使用[比分与阶段类]术语）
+        4. **对局状态与评价**（使用[状态与评价类]术语）
+        5. **移动与衔接**（使用[移动与衔接类]术语）
 
-        2. Identify and classify each shot type from these 20 categories:
-        [net shot, smash, wrist smash, lob, defensive return lob, clear, drive, 
-        driven flight, back-court drive, drop, passive drop, push, rush, 
-        defensive return drive, cross-court net shot, short service, 
-        long service, defensive shot, push/rush]
+        3. Identify and classify each shot type from these categories:
+        [击球技术类]
+        [发短球, 发长球, 头顶杀斜线, 头顶杀直线, 平高压, 平高球, 高远球, 下压, 连续下压, 接杀弹空挡, 起跳重杀, 搓对角, 回勾, 挑过顶, 挑高球, 滑板斜线, 劈杀斜线, 抓推突击, 扑压, 抢搓, 抢挑, 抢放, 抢推, 假放真勾, 假放真挑, 鱼跃救球, 放网, 后场平抽球, 后场平球, 点杀, 吊球, 轻挡, 反拍过渡, 低手位回勾, 平高压边线, 滑板吊斜线, 假动作击球, 正手突击斜线, 正手突击直线, 侧身突击一拍, 拦截击球, 抽压, 接杀分对角, 接杀挡远网, 抢搓得分, 控头顶区, 小臂发力劈杀]
 
-        3. Each comment sentence should include:
-        - Name of the player who hit the ball in short: the last name of the player, e.g. "李" for "李宗伟"
-        - Player action sequence (with shot types)
-        - Tactical analysis
-        - Score update(get the match score from left-upper corner of the video)
-        - Exciting/exclamatory commentary phrase
+        [战术策略类]
+        [控网, 抢攻, 突击得分, 前后场拉开, 骗重心, 破坏连贯, 逼起球, 调动重心, 假放真挑, 抢放, 抓回顶, 抓摆脱, 控制节奏, 主动组织进攻, 反打空挡, 实现反杀, 高质量防守反击, 控正手, 控头顶, 控网抢搓, 控网杀上网, 防守反击, 假动作战术, 强力压制, 假动作假放真挑, 高质量接杀防守, 抢先一步放网, 高质量过渡球, 制造意外性, 打乱节奏, 控制落点变化, 调动对方跑动路线, 保持压迫感]
 
-        4. Style guidelines:
-        - Use nicknames or abbreviations like “{player1_nickname}” and “{player2_nickname}” when appropriate.
-        - Chinese commentary only
-        - Short, dynamic sentences (3 to 7 words for action descriptions)
-        - Tactical insights e.g. ("控网抢攻", "逼压底线")
-        - Do not generate too much emotional highlights
+        [移动与衔接类]
+        [往前跟进, 转身抓球, 快推拉开, 抓过度进攻, 破坏连贯, 高质量停顿, 高质量抽压, 高质量接杀, 高质量回搓, 判断失误, 被迫过渡, 往前逼压, 上网跟进, 连续扑压, 快速转身, 抢先一步, 上网快推, 往前连续逼压, 往前分斜线, 空王抢功, 抢占主动站位, 连续推转身, 高质量加力抽压, 高质量挑球摆脱, 高质量挡中路, 高质量封网, 快速反应调整, 提前预判移动, 中场控制站位, 半场突击跟进, 高质量封网得分, 连续多拍对抗]
 
-        Generate commentary that:
-        1. Precisely identifies each shot type
-        2. Explains player strategies
-        3. Maintains exciting play-by-play flow
-        4. Updates score regularly
-        5. Avoids excessive emotional highlights
-        6. Only Chinese commentary
+        [状态与评价类]
+        [机会不好, 先压一拍, 过渡一拍, 高质量, 实现反杀, 破坏节奏, 高质量发球, 控制节奏, 把握关键分, 极限救球, 意外失误, 击球出界, 挑球很到位, 战术执行到位, 高质量回放, 高质量滑板, 高质量劈杀, 高质量回搓, 高质量防守, 高质量挡网, 高质量抽压, 高质量突击, 高质量过渡, 高质量封网, 状态火热, 表现稳定, 稳定发挥, 把握机会能力强, 失误较多, 节奏掌控好, 比赛节奏加快, 比赛进入白热化, 关键分处理得当, 临场应变能力强, 高强度对抗, 体能下降, 高质量鱼跃接杀, 把握关键局点, 细节处理出色]
+
+        [比分与阶段类]
+        [第一局, 第二局, 第三局, 一比零, 五比三, 七比六, 十比九, 十一比九, 十五比十一, 十七比十五, 十九比十七, 二十比十八, 二十比十九, 二十一比十九, 二十一比十七, 二十一比十六, 局点, 赛点, 拿下首局, 拿下第二局, 晋级四强, 成功夺冠, 报仇成功, 个人首个冠军, 职业生涯里程碑, 完胜对手, 以2比0获胜, 以2比1逆转, 进入决胜局, 比赛结束, 以大比分战胜, 晋级决赛, 晋级半决赛, 闯入八强, 关键分得分, 关键分失误, 比赛节奏加快, 决胜时刻来临, 把握关键赛点, 比赛进入高潮, 进入关键轮次]
+        
+        注意：整个回合的解说应该以一位球员发球开始,以一位球员得分手段以及得分方式为结束,并且包含每次击球的描述,并且在最后总结一下本局的表现和比分.
+        
         extra requirements by user:
         {user_input}
         """
@@ -669,26 +693,22 @@ def draw_badminton_court():
     return fig
 
 
-def ragflow_predict(chat_response, sport, player1_name, player2_name):
-    # 供 Gradio 调用的接口函数
-# def query_rag(question: str) -> str:
-#     return rag_service.query(question)
+def ragflow_predict(chat_response, sport, player1_name, player2_name,user_input_rag):
     prompt = f"""
-    Generate a professional badminton commentary in Chinese for a {sport} match between {player1_name} (Player 1) and {player2_name} (Player 2).
-    Here is the initially generated commentary:
+    Generate a professional badminton commentary in Chinese based on the initially generated commentary below:
     {chat_response}
     Key requirements:
     1. Output Format:
     Return only a valid JSON array of objects with format, where hit_num is the index of the hit in the rally (1-based), and comment is the generated commentary for that hit:
     [
-    {
+    {{
         "hit_num": 2,
         "comment": "..."
-    }
-    {
+    }}
+    {{
         "hit_num": 3,
         "comment": "..."
-    },
+    }},
     ...
     ]
     2. Inhance the commentary by:
@@ -697,11 +717,10 @@ def ragflow_predict(chat_response, sport, player1_name, player2_name):
     - Adding more tactical analysis
     - Including more player actions
     - Making it more exciting
-    3. Style guidelines:
-    - Use nicknames or abbreviations like “{player1_name}” and “{player2_name}” when appropriate.
-    - Chinese commentary only
-    - Short, dynamic sentences (3 to 7 words for action descriptions)
-    - Tactical insights e.g. ("控网抢攻", "逼压底线")
+    - 检查是否以一位球员发球开始,以一位球员得分手段以及得分方式为结束
+
+    additional requirements by user:
+    {user_input_rag}
     """
     ans = query_rag(prompt)
     return ans
@@ -876,14 +895,13 @@ with gr.Blocks() as demo:
         """)
     with gr.Row():
         with gr.Column(scale=2):
-            gr.Markdown("## Collect Info From Video")
 
             video_input = gr.Video(label="上传视频文件")
             video_input.GRADIO_CACHE = f"data/{get_today()}"
             segment_button = gr.Button("分割回合", variant="primary")
             rally_data = gr.JSON(
                 label="分割结果",
-                visible=False  # 确保组件可见
+                visible=True  # 确保组件可见
             )
         
 
@@ -916,17 +934,16 @@ with gr.Blocks() as demo:
                 label="Generated images", show_label=False, elem_id="gallery"
             , columns=[3], rows=[1], object_fit="contain", height="auto")
             plot_video_action_list = gr.Plot(label="action sequence")
-            #上传csv文件:
+            # 新增统计图表展示区域
+            stats_plot = gr.Plot(label="Match Statistics")
+
+        with gr.Column(scale=2):
+            plot = gr.Plot(label="Badminton Court",value=draw_badminton_court())
             vis_choice =  gr.Dropdown(choices=["player", "ball", "all"], value="player")
-            with gr.Column():
+            with gr.Row():
                 actions_button = gr.Button("Get Action", variant="primary")
                 upload_csv_button = gr.Button("Get Match Statistics", variant="primary")
-           
-
             #控制可见的图例:
-
-
-        with gr.Column(scale=4):
             match_segment = gr.Dropdown(
                 choices=["第一场", "第二场", "第三场"],
                 label="Select Match Segment",
@@ -935,13 +952,7 @@ with gr.Blocks() as demo:
              
             # 新增可视化按钮
             stats_button = gr.Button("Show Match Stats", variant="primary")
-            
-            # 新增统计图表展示区域
-            stats_plot = gr.Plot(label="Match Statistics")
-            gr.Markdown("## Match Statistics Visualization")
-            plot = gr.Plot(label="Badminton Court",value=draw_badminton_court())
     with gr.Row():
-        gr.Markdown("## Build Commentary Agent")    
         with gr.Column():
             gr.Markdown("### 解说生成")  
             chat_response = gr.Textbox(
@@ -954,6 +965,12 @@ with gr.Blocks() as demo:
                 
         with gr.Column():
             gr.Markdown("### ragflow解说增强")
+            ragflow_result = gr.Textbox(
+                label="Ragflow Commentary",
+                placeholder="Ragflow Commentary",
+                lines=10
+            )
+            user_input_ragflow = gr.Textbox(label="用户输入", lines=3)
             rag_flow_button = gr.Button("Ragflow", variant="primary")
             
         with gr.Column():
@@ -967,8 +984,8 @@ with gr.Blocks() as demo:
 
     rag_flow_button.click(
         fn=ragflow_predict,
-        inputs=[chat_response, sport_dropdown, player1_name, player2_name],
-        outputs=chat_response
+        inputs=[chat_response, sport_dropdown, player1_name, player2_name,user_input_ragflow],
+        outputs=ragflow_result
     )
     voice_button.click(
         fn=commentary_generator,

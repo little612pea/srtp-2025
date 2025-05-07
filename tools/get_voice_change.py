@@ -7,7 +7,7 @@ def rms(audio_array):
     return np.sqrt(np.mean(np.square(audio_array), axis=1))
 
 # 加载视频文件
-video = VideoFileClip("/home/jovyan/2024-srtp/srtp-final/Anthony_Sinisuka_Ginting_Lee_Zii_Jia_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals.mp4")
+video = VideoFileClip("/home/jovyan/2024-srtp/srtp-final/giting-with-voice.mp4")
 
 # 提取音频
 audio = video.audio.to_soundarray()
