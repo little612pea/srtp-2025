@@ -1,4 +1,5 @@
 from tools.qwen_model import *
+from tools.rag_with_qwen import *
 import gradio as gr
 import json
 from openai import OpenAI  # 假设 OpenAI 模块可用
@@ -134,7 +135,7 @@ def visualize_match_data(match_segment):
     plt.rcParams['axes.unicode_minus'] = False  # 解决负号 '-' 显示为方块的问题
 
     # 创建画布：3行1列，高度增加一点
-    fig, (ax1, ax2, ax3,ax4) = plt.subplots(4, 1, figsize=(10, 20),gridspec_kw={'height_ratios': [1, 1, 1.5]})
+    fig, (ax1, ax2, ax3,ax4) = plt.subplots(4, 1, figsize=(10, 20),gridspec_kw={'height_ratios': [1, 1, 1.5, 1]})
     plt.subplots_adjust(hspace=0.6)  # 增加子图间距
 
     # 图1：击球类型分布（英文）
@@ -231,9 +232,8 @@ def create_timeline_plot(action_list, video_duration):
 # 设置 DashScope API Key 和模型参数
 dashscope.api_key = "sk-cd5c2f5fcddd49c5b4e4169d5021d8e2"
 TTS_MODEL = "cosyvoice-v1"
-TTS_VOICE = "longlaotie"
 
-def commentary_generator(rally_id, chat_response, rally_data):
+def commentary_generator(rally_id, chat_response, rally_data,voice_choice):
     # 路径配置
     rally_id = 3
     rally_data = rally_data["rally"]
@@ -274,7 +274,7 @@ def commentary_generator(rally_id, chat_response, rally_data):
         audio_clips = []
 
         # 初始化合成器
-        synthesizer = SpeechSynthesizer(model=TTS_MODEL, voice=TTS_VOICE)
+        synthesizer = SpeechSynthesizer(model=TTS_MODEL, voice=voice_choice)
 
         # 遍历每一条解说词
         for i, item in enumerate(commentaries):
@@ -668,6 +668,45 @@ def draw_badminton_court():
 
     return fig
 
+
+def ragflow_predict(chat_response, sport, player1_name, player2_name):
+    # 供 Gradio 调用的接口函数
+# def query_rag(question: str) -> str:
+#     return rag_service.query(question)
+    prompt = f"""
+    Generate a professional badminton commentary in Chinese for a {sport} match between {player1_name} (Player 1) and {player2_name} (Player 2).
+    Here is the initially generated commentary:
+    {chat_response}
+    Key requirements:
+    1. Output Format:
+    Return only a valid JSON array of objects with format, where hit_num is the index of the hit in the rally (1-based), and comment is the generated commentary for that hit:
+    [
+    {
+        "hit_num": 2,
+        "comment": "..."
+    }
+    {
+        "hit_num": 3,
+        "comment": "..."
+    },
+    ...
+    ]
+    2. Inhance the commentary by:
+    - base on the initial commentary
+    - base on the database knowledge of badminton commentary
+    - Adding more tactical analysis
+    - Including more player actions
+    - Making it more exciting
+    3. Style guidelines:
+    - Use nicknames or abbreviations like “{player1_name}” and “{player2_name}” when appropriate.
+    - Chinese commentary only
+    - Short, dynamic sentences (3 to 7 words for action descriptions)
+    - Tactical insights e.g. ("控网抢攻", "逼压底线")
+    """
+    ans = query_rag(prompt)
+    return ans
+
+
 def predict(message, history):
     history_openai_format = []
     for human, assistant in history:
@@ -816,7 +855,24 @@ def process_video_result(outputs_dir):
 with gr.Blocks() as demo:
     gr.Markdown("""
         <h1 style='text-align: center;'>基于视觉大模型的体育智能分析</h1>
-        <h3 style='text-align: center; color: gray'>2024-srtp jyHu syHu rhXu</h3>
+        <div style='display: flex; justify-content: center; gap: 20px;'>
+            <h3 style='text-align: center; color: gray'>2025-srtp jyHu syHu rhXu</h3>
+            <a href="https://github.com/opengvlab/VideoChat-Flash-Qwen2_5-2B_res448" target="_blank">
+                <img src="https://raw.githubusercontent.com/little612pea/srtp-2025/main/logos/gvlab.jpg" alt="VideoChat-Flash-Qwen2_5-2B_res448" width="50">
+            </a>
+            <a href="https://github.com/open-mmlab/mmaction2" target="_blank">
+                <img src="https://raw.githubusercontent.com/little612pea/srtp-2025/main/logos/mmaction2_logo.png" alt="mmaction2" width="140">
+            </a>
+            <a href="URL_TO_RAGFLOW" target="_blank">
+                <img src="https://raw.githubusercontent.com/little612pea/srtp-2025/main/logos/ragflow-logo.png" alt="ragflow" width="130">
+            </a>
+            <a href="https://www.bwfbadminton.com/" target="_blank">
+                <img src="https://raw.githubusercontent.com/little612pea/srtp-2025/main/logos/BWF-LOGO.jpg" alt="BWF" width="50">
+            </a>
+            <a href="https://www.itftennis.com/en/" target="_blank">
+                <img src="https://raw.githubusercontent.com/little612pea/srtp-2025/main/logos/itf.jpg" alt="ITF" width="121">
+            </a>
+        </div>
         """)
     with gr.Row():
         with gr.Column(scale=2):
@@ -885,8 +941,9 @@ with gr.Blocks() as demo:
             gr.Markdown("## Match Statistics Visualization")
             plot = gr.Plot(label="Badminton Court",value=draw_badminton_court())
     with gr.Row():
+        gr.Markdown("## Build Commentary Agent")    
         with gr.Column():
-            gr.Markdown("## Build Commentary Agent")        
+            gr.Markdown("### 解说生成")  
             chat_response = gr.Textbox(
                 label="AI Commentary",
                 placeholder="AI Commentary",
@@ -894,10 +951,25 @@ with gr.Blocks() as demo:
             )
             user_input = gr.Textbox(label="用户输入", lines=3)
             qwen_button = gr.Button("执行分析", variant="primary")
+                
+        with gr.Column():
+            gr.Markdown("### ragflow解说增强")
+            rag_flow_button = gr.Button("Ragflow", variant="primary")
+            
+        with gr.Column():
+            gr.Markdown("### tts语音合成")
+            comment_res = gr.Video(label="video will be shown here")
+            voice_choice =  gr.Dropdown(choices=["longlaotie", "longcheng", "longhua"], value="longlaotie")
             voice_button = gr.Button("语音合成", variant="primary")
 
 
  # 交互逻辑绑定
+
+    rag_flow_button.click(
+        fn=ragflow_predict,
+        inputs=[chat_response, sport_dropdown, player1_name, player2_name],
+        outputs=chat_response
+    )
     voice_button.click(
         fn=commentary_generator,
         inputs=[video_dropdown,chat_response,rally_data],
@@ -930,5 +1002,5 @@ with gr.Blocks() as demo:
     )
 
 if __name__ == "__main__":
-    model, tokenizer, image_processor, max_num_frames, generation_config = get_qwen_model()
+    # model, tokenizer, image_processor, max_num_frames, generation_config = get_qwen_model()
     demo.launch(share=True)
